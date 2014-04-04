@@ -1,7 +1,7 @@
 petersaysbah
 ============
 
-sistem informasi penerimaan siswa baru aka psb
+sistem informasi penerimaan siswa baru aka psb. dibikin di atas CodeIgniter dan Twitter Bootstrap.
 
 ##gimana gimana
 
