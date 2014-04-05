@@ -26,12 +26,13 @@ class Pengaturan extends CI_Controller
 
 			$this->load->model('m_pengaturan');
 			$tetapan=$this->m_pengaturan->baca();
-			print_r($tetapan);
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+			
 			$data['dayatampung']=$tetapan[0]['nilai'];
 			$data['tglbuka']=$tetapan[1]['nilai'];
 			$data['tgltutup']=$tetapan[2]['nilai'];
 			$data['tglpengumuman']=$tetapan[3]['nilai'];
-			echo $data['tglbuka'];
 			
 			$data['title']="Pengaturan";
 

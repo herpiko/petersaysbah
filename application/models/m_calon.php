@@ -32,6 +32,53 @@ class M_calon extends CI_Model{
 		
 		}
 
+	function set_username($username,$email){
+
+		$db=$this->load->database('default',TRUE);	
+		$query="UPDATE users SET username='$username' WHERE email='$email'";
+		$db->query($query);
+		
+		}
+
+	function standar_nilai(){
+		$db=$this->load->database('default',TRUE);
+		$query="SELECT calon_nilai FROM calon ORDER BY calon_nilai DESC";
+		$result=$db->query($query);
+		$result=$result->result_array();
+
+		$query2="SELECT * FROM tetapan";
+		$tetapan=$db->query($query2);
+		$tetapan=$tetapan->result_array();
+		$dayatampung=$tetapan[0]['nilai'];
+		
+		//print_r($tetapan);
+		// echo "<br>";
+		
+		$x=array();
+		$nilai=array();
+		$i=0;
+		foreach ($result as $key => $value) {
+			$x[$i]=$value;
+			foreach ($x as $key => $value) {
+				$nilai[$i]=$value['calon_nilai'];
+			}
+			$i++;
+		}
+		
+		// print_r($nilai);
+		$jumlah=count($nilai);
+		$jumlah--;
+		//print_r($dayatampung);
+		
+
+		if ($jumlah<$dayatampung) {
+			$standar_nilai=$nilai[$jumlah];
+		} else {
+			$standar_nilai=$nilai[$dayatampung];
+		}
+		return $standar_nilai;
+	}
+
 	function create_user($username,$password,$email,$activated){
 		$db=$this->load->database('default',TRUE);
 		$query="INSERT INTO users (username,password,email,activated) values ('$username','$password','$email','$activated')";
@@ -53,6 +100,19 @@ class M_calon extends CI_Model{
 
 		
 
+	}
+
+	function get_all(){
+		$db=$this->load->database('default',TRUE);	
+		$query="SELECT * FROM calon";
+		$data=$db->query($query);
+		// $data=array();
+		// $x=0;
+		// foreach ($result->result_array() as $key) {
+		// 	$data[$x]=$key;
+		// 	$x=$x+1;
+		// }
+		return $data;
 	}
 
 	function get_total(){
@@ -95,7 +155,12 @@ class M_calon extends CI_Model{
 		$query="SELECT activated FROM users WHERE email='$email'";
 		$result=$db->query($query);
 		$result=$result->result_array();
-		$result=$result[0]['activated'];
+			if (empty($result)) {
+				$result='0';
+			} else {
+				$result=$result[0]['activated'];		
+			}
+		
 		return $result;
 	}
 		

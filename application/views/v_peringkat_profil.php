@@ -5,13 +5,13 @@
 &nbsp
 <?php 
 if ($calon_status=="1") {
-	echo "<a href=\"".$base_url."peringkat/verifikasi_unset/".$calon_id."\" class=\"btn btn-warning\">Batalkan verifikasi nilai</a>";
+	echo "<a href=\"".$base_url."peringkat/verifikasi_unset/".$calon_id."\" class=\"btn btn-warning\">Batalkan validasi</a>";
 } else {
-	echo "<a href=\"".$base_url."peringkat/verifikasi/".$calon_id."\" class=\"btn btn-success\">Verifikasi nilai</a>";
+	echo "<a href=\"".$base_url."peringkat/verifikasi/".$calon_id."\" class=\"btn btn-success\">Validasi</a>";
 }
 ?>
 &nbsp
-<a id="modal-<?php echo $calon_id;?>" href="#modal-container-<?php echo $calon_id;?>" data-toggle="modal" class="btn btn-danger">Diskualifikasi</a>		
+<!-- <a id="modal-<?php echo $calon_id;?>" href="#modal-container-<?php echo $calon_id;?>" data-toggle="modal" class="btn btn-danger">Diskualifikasi</a>		
 			<div class="modal fade" id="modal-container-<?php echo $calon_id;?>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -36,10 +36,10 @@ if ($calon_status=="1") {
 					</div>
 					
 				</div>
-			</div>
+			</div>-->
 
 
-</div>					
+</div>
 <?php 
 echo "<h3>Profil : ".$calon_nama."";
 ?>
@@ -48,9 +48,9 @@ echo "<h3>Profil : ".$calon_nama."";
 	<strong>
 <?php 
 if ($calon_status=="1") {
-			echo "Terverifikasi &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v1.png\" width=\"20px\">";	
+			echo "Data valid &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v1.png\" width=\"20px\">";	
 			} else {
-			echo "Belum diverifikasi &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
+			echo "Belum divalidasi &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
 			}
 ?>
 </strong>

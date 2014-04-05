@@ -137,7 +137,7 @@ $captcha = array(
 			</tr>
 			<tr>
 				<td>Tanggal Lahir</td>
-				<td><input id="tanggal" class="form-control" name="tanggallahir" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text">
+				<td><input id="tanggal" class="form-control" name="tanggallahir" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text" placeholder="DD-MM-YYYY">
 
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
@@ -174,26 +174,37 @@ $captcha = array(
 			<tr>
 				<td><br>
 					<strong>Nilai Ujian</strong>
-				</td></tr>
-			<tr>
-				<td>Total Nilai Ujian Nasional</td>
-				<td><input class="form-control" name="nilai" data-validation="required number" type="text"></td>	
+
+				</td>
+				<td>
+				</td>
 			</tr>
 			<tr>
+				<td>
+				</td>
+				<td>
+					<div class="alert alert-warning">Desimal dapat dilambangkan dengan titik (.),<br> misal : 7.5</div>
+				</td>
+			</tr>
+			<!-- <tr>
+				<td>Total Nilai Ujian Nasional</td>
+				<td><input class="form-control" name="nilai" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;40]" type="text"></td>	
+			</tr> -->
+			<tr>
 				<td>Nilai Bahasa Indonesia</td>
-				<td><input class="form-control" name="nilai_a" data-validation="required number" type="text"></td>	
+				<td><input class="form-control" name="nilai_a" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Nilai Matematika</td>
-				<td><input class="form-control" name="nilai_b" data-validation="required number" type="text"></td>	
+				<td><input class="form-control" name="nilai_b" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Nilai Bahasa Inggris</td>
-				<td><input class="form-control" name="nilai_c" data-validation="required number" type="text"></td>	
+				<td><input class="form-control" name="nilai_c" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Nilai IPA</td>
-				<td><input class="form-control" name="nilai_d" data-validation="required number" type="text"></td>	
+				<td><input class="form-control" name="nilai_d" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
 			</tr>
 			<!-- <tr>
 				<td>Nilai E</td>
@@ -241,7 +252,7 @@ Saya menyatakan bahwa informasi yang saya tulis dan unggah di atas adalah benar 
 
  var myLanguage = {
       requiredFields : 'Tidak boleh kosong',
-      badInt : 'Isi dengan angka',
+      badInt : 'Format angka belum benar.',
       lengthTooShortStart : 'Minimal ',
       };
 

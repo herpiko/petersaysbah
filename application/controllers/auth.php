@@ -92,11 +92,13 @@ class Auth extends CI_Controller
 					$data['captcha_html'] = $this->_create_captcha();
 				}
 			}
+
 			$data['title']="Login";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
+			
 			$this->load->view('header', $data);
 			$this->load->view('v_login', $data);
 			$this->load->view('sidebar_login');
@@ -178,14 +180,29 @@ class Auth extends CI_Controller
 		$notelp=$this->input->post('notelp');
 		$nohp=$this->input->post('nohp');
 		$asal=$this->input->post('asal');
-		$nilai=$this->input->post('nilai');
+		
 		$nilai_a=$this->input->post('nilai_a');
 		$nilai_b=$this->input->post('nilai_b');
 		$nilai_c=$this->input->post('nilai_c');
 		$nilai_d=$this->input->post('nilai_d');
-		$nilai_e=$this->input->post('nilai')/4;
+		$nilai=$nilai_a+$nilai_b+$nilai_c+$nilai_d;
+		$nilai_e=$nilai/4;
+		$nilai_e=substr($nilai_e, 0,4);
 		// $nilai_e=$this->input->post('nilai_e');
 		// $nilai_f=$this->input->post('nilai_f');
+		
+		$x="";
+		$i=0;
+		while ($x!="@") {
+			$x=substr($email, $i,1);
+			$i++;
+		}
+		$i--;
+		$username=substr($email,0,$i);
+		
+		$this->m_calon->set_username($username,$email);
+
+		
 
 		$this->m_calon->submit($email,$passwd,$nama,$tempatlahir,$tanggallahir,$kelamin,$alamat,$notelp,$nohp,$asal,$nilai,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e);
 
@@ -225,6 +242,8 @@ class Auth extends CI_Controller
 				}
 			}
 
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 
 			$data['use_username'] = $use_username;
 			$data['captcha_registration'] = $captcha_registration;
@@ -281,6 +300,8 @@ class Auth extends CI_Controller
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_send_again', $data);
 			$this->load->view('sidebar');
@@ -304,7 +325,8 @@ class Auth extends CI_Controller
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
 			$this->tank_auth->logout();
-			$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
+			// $this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
+			redirect('reg_activated');
 
 		} else {																// fail
 			$this->_show_message($this->lang->line('auth_message_activation_failed'));
@@ -351,6 +373,8 @@ class Auth extends CI_Controller
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_forgot', $data);
 			$this->load->view('sidebar');
@@ -437,6 +461,8 @@ class Auth extends CI_Controller
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_changepass', $data);
 			$this->load->view('sidebar');

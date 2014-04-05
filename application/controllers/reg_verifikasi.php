@@ -21,6 +21,8 @@ class Reg_verifikasi extends CI_Controller
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_verifikasi', $data);
 			$this->load->view('sidebar');

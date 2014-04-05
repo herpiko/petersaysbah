@@ -34,30 +34,44 @@
 				<td><input class="form-control" name="batasnilai" data-validation="required number" type="text"></td>	
 			</tr> -->
 			<tr>
-				<td>Tanggal pendaftaran dibuka</td>
+				<td>Pendaftaran dibuka</td>
 				<td><input id="tanggal" class="form-control" name="tglbuka" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text>
 			            <!--javascript for datepicker-->
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+				<script type="text/javascript">
+				var elem = document.getElementById("tanggal");
+				elem.value = "<?php echo $tglbuka; ?>";
+				</script>
 				</td>
 			</tr>
 			<tr>
-				<td>Tanggal pendaftaran ditutup</td>
+				<td>Pendaftaran ditutup</td>
 				<td><input id="tanggal2" class="form-control" name="tgltutup" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text value="<?php echo $tgltutup; ?>">
 			            <!--javascript for datepicker-->
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+				<script type="text/javascript">
+				var elem = document.getElementById("tanggal2");
+				elem.value = "<?php echo $tgltutup; ?>";
+				</script>
+
 				</td>
 			</tr>
 			<tr>
-				<td>Tanggal pengumuman</td>
-				<td><input id="tanggal3" class="form-control" name="tglpengumuman" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text value="<?php echo $tglpengumuman; ?>">
+				<td>Pengumuman</td>
+				<td><input id="tanggal3" class="form-control" name="tglpengumuman" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text">
 			            <!--javascript for datepicker-->
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+				<script type="text/javascript">
+				var elem = document.getElementById("tanggal3");
+				elem.value = "<?php echo $tglpengumuman; ?>";
+				</script>
+
 				</td>
 			</tr>
 		

@@ -16,8 +16,8 @@ $config['newline'] = "\r\n";
 $config['protocol'] = "smtp";
 $config['smtp_host'] = "ssl://smtp.googlemail.com";
 $config['smtp_port'] = "465";
-$config['smtp_user'] = "mail@gmail.com";//also valid for Google Apps Accounts
-$config['smtp_pass'] = "password"; //your password
+$config['smtp_user'] = "yourmail@gmail.com";//also valid for Google Apps Accounts
+$config['smtp_pass'] = "password"; //your email password
 
 
 

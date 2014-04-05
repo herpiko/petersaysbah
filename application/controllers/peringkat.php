@@ -91,12 +91,12 @@ class Peringkat extends CI_Controller
 						No. Registrasi : ".$row['calon_id']."
 						<br>Nama : ".$row['calon_nama']."
 						<br>Email : ".$row['calon_email']."
-							<br><br><form method=\"POST\" name=\"form-".$row['calon_id']."\" action=\"#\">
-								<textarea style=\"width:540px;height:150px\" name=\"pesan_diskualifikasi\" placeholder=\"Tuliskan pesan email mengenai alasan diskualifikasi\"></textarea>
-							</form>
+							<br><br><form method=\"POST\" name=\"form-".$row['calon_id']."\" action=\"".$this->config->base_url()."peringkat/delete/".$row['calon_id']."\" \">
+								<textarea style=\"width:540px;height:150px\" name=\"pesan\" placeholder=\"Tuliskan pesan email mengenai alasan diskualifikasi\"></textarea>
 						</div>
 						<div class=\"modal-footer\">
-							 <input type=\"button\" class=\"btn btn-default\" value=\"Batal\" data-dismiss=\"modal\"> <input type=\"submit\" class=\"btn btn-primary\" name=\"submit\" value=\"Diskualifikasi dan kirim email pemberitahuan\">
+							<input type=\"hidden\" name=\"email\" value=\"".$row['calon_email']."\">
+							 <input type=\"button\" class=\"btn btn-default\" value=\"Batal\" data-dismiss=\"modal\">  <input class=\"btn btn-danger\" type=\"submit\" name=\"submit\" value=\"Diskualifikasi dan kirim email pemberitahuan\">
 							</form>
 						</div>
 					</div>
@@ -140,15 +140,17 @@ class Peringkat extends CI_Controller
 		$tmpl = array ( 'table_open'  => '<table class="table table-hover table-striped">','table_close'  => '</table>'  );
 		$this->table->set_template($tmpl); 
 		if ($data['username']=="admin") {
-			$this->table->set_heading('Peringkat','No. Registrasi','Nama','Nilai','Nilai Rata-rata','Sekolah Asal','Verifikasi email','Verifikasi nilai');
+			$this->table->set_heading('Peringkat','No. Registrasi','Nama','Nilai','Nilai Rata-rata','Sekolah Asal','Verifikasi email','Validasi');
 		} else {
 			$this->table->set_heading('Peringkat','No. Registrasi','Nama','Nilai','Nilai Rata-rata','Sekolah Asal');	
 		}
 		$data['table']=$this->table->generate();
+		$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 
 			$this->load->view('header', $data);
 			$this->load->view('v_peringkat', $data);
-			if (!$data['username']=="admin") {
+			if ($data['username']!="admin") {
 				$this->load->view('sidebar');
 			}
 			$this->load->view('footer');
@@ -172,6 +174,31 @@ class Peringkat extends CI_Controller
 		if (!$data['username']=="admin") {
 		 	redirect('/auth/login/');
 		} else {
+
+			$email=$this->input->post('email');
+			$pesan=$this->input->post('pesan');
+     
+
+        $this->load->helper('url_helper');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('email');
+        $this->load->helper('url'); 
+
+            // $config['protocol'] = 'sendmail';
+            // $config['mailpath'] = '/usr/sbin/sendmail';
+            $config['charset'] = 'iso-8859-1';
+            $config['wordwrap'] = TRUE; 
+            $this->email->initialize($config);
+
+            $this->email->from('herpiko@gmail.com', 'PSB Online SMA Negeri 1 Dompu');
+            $this->email->to($email); 
+            $this->email->subject('Diskualifikasi');
+            $this->email->message($pesan);  
+
+            $this->email->send();
+
+            //echo $this->email->print_debugger();
+
 
 
 		$this->load->model('m_calon');

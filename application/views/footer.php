@@ -6,7 +6,7 @@
 					
 					</div>
 <hr><p class="text-center">
-Dibuat dengan perangkat lunak sumber terbuka @ 2014
+Dirilis dibawah GPLv2
 </p>
 			</div>
 			</div>

@@ -1,5 +1,7 @@
 <div class="col-md-4 column">
 <div class="well">
+<div class="alert alert-info">Standar nilai sementara : &nbsp&nbsp > <?php echo $standar_nilai; ?></div>
+
 Panel samping blablahblah
 <h2>Informasi PSB<br>
 hubungi :
@@ -7,6 +9,7 @@ hubungi :
 
 <br>
 [ ^ bagus kalo dibikin banner ]
+
 </div>
 			</div>
 </div>

@@ -102,6 +102,8 @@ class Dayatampung extends CI_Controller
 
 		
 			$this->load->model('m_halaman');
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			$isi=$this->input->post('halaman_isi');
 			$halaman=$this->m_halaman->get(3);
 			$data['halaman_isi']=$halaman['halaman_isi'];
@@ -123,6 +125,8 @@ class Dayatampung extends CI_Controller
 	{
 
 			$this->load->model('m_halaman');
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
@@ -144,6 +148,8 @@ class Dayatampung extends CI_Controller
 
 	function edit(){
 			$this->load->model('m_halaman');
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
 			
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();

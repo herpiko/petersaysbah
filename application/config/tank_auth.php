@@ -116,7 +116,7 @@ $config['captcha_height'] = 30;
 $config['captcha_font_size'] = 18;
 $config['captcha_grid'] = FALSE;
 $config['captcha_expire'] = 180;
-$config['captcha_case_sensitive'] = TRUE;
+$config['captcha_case_sensitive'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------

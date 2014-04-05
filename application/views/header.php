@@ -69,8 +69,10 @@
 						<li <?php if ($title=="Formulir Pendaftaran") {
 							echo "class=\"active\"";
 						} ?>>
-						<?php 
-							if ($username!="admin") {
+						<?php
+
+							
+							if (!$is_logged_in) {
 								echo "<a href=\"".$base_url."index.php/auth/register\">Pendaftaran</a>";
 							}
 						 ?>
@@ -79,9 +81,28 @@
 						<li <?php if ($title=="Peringkat") {
 							echo "class=\"active\"";
 						} ?>>
-							<a href="<?php echo $base_url; ?>peringkat">Peringkat</a>
+						<?php 
+							if ($is_logged_in) {
+								echo "<a href=\"".$base_url."peringkat\">Peringkat</a>";
+							}
+							
+						?>
+						
 						</li>
-						<li <?php if ($title=="Statistik") {
+						</li>
+						<li>
+						<?php 
+							if ($is_logged_in) {
+								if ($username!='admin') {
+								echo "<a target=\"_blank\" href=\"".$base_url."cetak\">Cetak lembar registrasi</a>";
+								}
+								
+							}
+							
+						?>
+						
+						</li>
+					<!-- 	<li <?php if ($title=="Statistik") {
 							echo "class=\"active\"";
 						} ?>>
 						<?php 
@@ -89,7 +110,7 @@
 								echo "<a href=\"".$base_url."statistik\">Statistik</a>";
 							}
 						 ?>
-						</li>
+						</li> -->
 						<li <?php if ($title=="Pengaturan") {
 							echo "class=\"active\"";
 						} ?>>
