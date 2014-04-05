@@ -1,7 +1,8 @@
 petersaysbah
 ============
 
-sistem informasi penerimaan siswa baru aka psb. dibikin di atas CodeIgniter dan Twitter Bootstrap.
+sistem informasi penerimaan siswa baru aka psb, dibikin di atas CodeIgniter dan Twitter Bootstrap. sistem ini dirancang untuk sekolah-sekolah yang belum terjangkau siap-ppdb milik 
+Telkom. jika kota/kabupaten anda sudah ada desas-desus penggunaan siap-ppdb, anda sebaiknya mengabaikan petersaysbah.
 
 ##gimana gimana
 
