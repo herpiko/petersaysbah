@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2014 at 01:19 AM
+-- Generation Time: Apr 05, 2014 at 02:37 PM
 -- Server version: 5.5.32-MariaDB
 -- PHP Version: 5.4.22
 
@@ -30,6 +30,7 @@ USE `psb`;
 
 CREATE TABLE IF NOT EXISTS `calon` (
   `calon_id` int(11) NOT NULL AUTO_INCREMENT,
+  `calon_waktu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `calon_email` varchar(100) NOT NULL,
   `calon_passwd` varchar(225) NOT NULL,
   `calon_nama` varchar(50) NOT NULL,
@@ -40,26 +41,29 @@ CREATE TABLE IF NOT EXISTS `calon` (
   `calon_notelp` varchar(20) NOT NULL,
   `calon_nohp` varchar(20) NOT NULL,
   `calon_asal` varchar(50) NOT NULL,
-  `calon_nilai` varchar(5) NOT NULL,
-  `calon_nilai_a` varchar(5) NOT NULL,
-  `calon_nilai_b` varchar(5) NOT NULL,
-  `calon_nilai_c` varchar(5) NOT NULL,
-  `calon_nilai_d` varchar(5) NOT NULL,
-  `calon_nilai_e` varchar(5) NOT NULL,
-  `calon_nilai_f` varchar(5) NOT NULL,
+  `calon_nilai` float NOT NULL,
+  `calon_nilai_a` float NOT NULL,
+  `calon_nilai_b` float NOT NULL,
+  `calon_nilai_c` float NOT NULL,
+  `calon_nilai_d` float NOT NULL,
+  `calon_nilai_e` float NOT NULL,
+  `calon_nilai_f` float NOT NULL,
   `calon_status` varchar(1) NOT NULL,
   PRIMARY KEY (`calon_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=65 ;
 
+--
+-- Truncate table before insert `calon`
+--
+
+TRUNCATE TABLE `calon`;
 --
 -- Dumping data for table `calon`
 --
 
-INSERT INTO `calon` (`calon_id`, `calon_email`, `calon_passwd`, `calon_nama`, `calon_tempatlahir`, `calon_tanggallahir`, `calon_kelamin`, `calon_alamat`, `calon_notelp`, `calon_nohp`, `calon_asal`, `calon_nilai`, `calon_nilai_a`, `calon_nilai_b`, `calon_nilai_c`, `calon_nilai_d`, `calon_nilai_e`, `calon_nilai_f`, `calon_status`) VALUES
-(47, 'cingicanga@gmail.com', '', 'Yanuar Arafat', 'Dompu', '23-04-2014', 'Laki-laki', 'Sumbawa', '123', '123', 'SMP Negeri 5 Dompu', '48', '8', '8', '8', '8', '8', '8', '1'),
-(50, 'padfoot.tgz@gmail.com', '', 'Sirius Black', 'Hogmeade', '23-04-2014', 'Laki-laki', 'Hogwarts', '123', '123', 'Hogwarts', '36', '6', '6', '6', '6', '6', '6', '1'),
-(51, 'potter_hat@yahoo.com', '', 'Potter Hat', 'asdf', '15-04-2014', 'Laki-laki', 'asfd', '123', '123', 'SMP mana saja', '1', '1', '1', '1', '1', '1', '1', '1'),
-(54, 'herpiko@ntb.linux.or.id', '', 'Herpiko Dwi Aguno', 'Mataram', '15-04-2014', 'Laki-laki', 'Mataram', '123', '123', 'SMP Negeri 6 Mataram', '30', '6', '7', '8', '9', '7.5', '', '0');
+INSERT INTO `calon` (`calon_id`, `calon_waktu`, `calon_email`, `calon_passwd`, `calon_nama`, `calon_tempatlahir`, `calon_tanggallahir`, `calon_kelamin`, `calon_alamat`, `calon_notelp`, `calon_nohp`, `calon_asal`, `calon_nilai`, `calon_nilai_a`, `calon_nilai_b`, `calon_nilai_c`, `calon_nilai_d`, `calon_nilai_e`, `calon_nilai_f`, `calon_status`) VALUES
+(62, '2014-04-04 18:41:07', 'padfoot.tgz@gmail.com', '', 'Sirius Black', 'London', '17-04-2014', 'Laki-laki', 'Hogsmeade', '', '081912342112', 'Hogwarts', 40, 10, 10, 10, 10, 10, 0, '1'),
+(63, '2014-04-05 13:55:40', 'potter_hat@yahoo.com', '', 'Harry Potty', 'Hogsmeade', '08-04-2014', 'Laki-laki', 'Hogsmeade', '', '08191512313', 'Hogswarts', 34, 9, 8, 9, 8, 8.5, 0, '1');
 
 -- --------------------------------------------------------
 
@@ -76,6 +80,11 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Truncate table before insert `ci_sessions`
+--
+
+TRUNCATE TABLE `ci_sessions`;
 -- --------------------------------------------------------
 
 --
@@ -89,6 +98,11 @@ CREATE TABLE IF NOT EXISTS `halaman` (
   PRIMARY KEY (`halaman_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Truncate table before insert `halaman`
+--
+
+TRUNCATE TABLE `halaman`;
 --
 -- Dumping data for table `halaman`
 --
@@ -112,7 +126,19 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(50) COLLATE utf8_bin NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+
+--
+-- Truncate table before insert `login_attempts`
+--
+
+TRUNCATE TABLE `login_attempts`;
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(1, '127.0.0.1', 'herpiko@gmiail.com', '2014-04-04 17:53:33');
 
 -- --------------------------------------------------------
 
@@ -125,17 +151,22 @@ CREATE TABLE IF NOT EXISTS `tetapan` (
   `tetapan` varchar(225) NOT NULL,
   `nilai` varchar(225) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
+--
+-- Truncate table before insert `tetapan`
+--
+
+TRUNCATE TABLE `tetapan`;
 --
 -- Dumping data for table `tetapan`
 --
 
 INSERT INTO `tetapan` (`id`, `tetapan`, `nilai`) VALUES
-(1, 'dayatampung', '150'),
-(2, 'tglbuka', '08-04-2014'),
-(3, 'tgltutup', '16-04-2014'),
-(4, 'tglpengumuman', '25-04-2014');
+(1, 'dayatampung', '3'),
+(2, 'tglbuka', '01-04-2014'),
+(3, 'tgltutup', '09-04-2014'),
+(4, 'tglpengumuman', '30-04-2014');
 
 -- --------------------------------------------------------
 
@@ -160,18 +191,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=64 ;
 
+--
+-- Truncate table before insert `users`
+--
+
+TRUNCATE TABLE `users`;
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`) VALUES
-(1, 'admin', '$2a$08$VpvwilWnSKiP3MHGhzbMCOYw9e0Q2sBS7ejkwTOgUCOOYXCg.a6V2', 'admin@admin.admin', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-04-04 09:19:41', '2014-03-31 10:46:51', '2014-04-04 01:19:41'),
-(46, '', '$2a$08$N.fNSuU32wpZ6FnL/CdpAuK0UevhD5KSspZG1LKdIFWP89URKPd.W', 'cingicanga@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-04-02 04:07:24', '2014-04-02 04:05:29', '2014-04-01 20:07:24'),
-(49, '', '$2a$08$HZFLSosjD2NSmTQ3uxynme1t3.GCiwwgSjoZqvHJ7EMbBG1s6kE5u', 'padfoot.tgz@gmail.com', 0, 0, NULL, NULL, NULL, NULL, '83a9fa70b9d4591fd7139c72f8b3a557', '127.0.0.1', '0000-00-00 00:00:00', '2014-04-02 06:32:03', '2014-04-01 22:32:03'),
-(50, '', '$2a$08$H7SPcDuKM1QHe0GWCjWSrufABzvrCJCgctpg.FofS7QHINXawJ1Bm', 'potter_hat@yahoo.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '192.168.168.104', '2014-04-02 11:07:39', '2014-04-02 11:05:58', '2014-04-02 03:07:39'),
-(53, '', '$2a$08$nChm8sCDNZspdtz9U38kEuOd0/TRVr9NyYMIm.woPi/t338vmwGOa', 'herpiko@ntb.linux.or.id', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '0000-00-00 00:00:00', '2014-04-02 20:06:21', '2014-04-02 12:06:57');
+(1, 'admin', '$2a$08$VpvwilWnSKiP3MHGhzbMCOYw9e0Q2sBS7ejkwTOgUCOOYXCg.a6V2', 'admin@admin.admin', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-04-05 22:25:09', '2014-03-31 10:46:51', '2014-04-05 14:25:09'),
+(61, 'padfoot.tgz', '$2a$08$RlTOgjYlnTZG8.Px6uwPMOtT4GvA2LVoFQjMSogH.mTRHi6v4h8..', 'padfoot.tgz@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-04-05 02:36:55', '2014-04-05 02:36:01', '2014-04-04 18:36:55'),
+(62, 'potter_hat', '$2a$08$pYuqebHoNblSjc6smradYe1qf8x6eLBMN.fFCTIILjh4Tl2HQtWoW', 'potter_hat@yahoo.com', 0, 0, NULL, NULL, NULL, NULL, 'c5be242a4dd770df31dfd8dc8f3e36fe', '127.0.0.1', '0000-00-00 00:00:00', '2014-04-05 03:09:44', '2014-04-04 19:09:44');
 
 -- --------------------------------------------------------
 
@@ -188,6 +222,11 @@ CREATE TABLE IF NOT EXISTS `user_autologin` (
   PRIMARY KEY (`key_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Truncate table before insert `user_autologin`
+--
+
+TRUNCATE TABLE `user_autologin`;
 -- --------------------------------------------------------
 
 --
@@ -200,8 +239,13 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
   `country` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `website` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=47 ;
 
+--
+-- Truncate table before insert `user_profiles`
+--
+
+TRUNCATE TABLE `user_profiles`;
 --
 -- Dumping data for table `user_profiles`
 --
@@ -244,7 +288,15 @@ INSERT INTO `user_profiles` (`id`, `user_id`, `country`, `website`) VALUES
 (35, 50, NULL, NULL),
 (36, 51, NULL, NULL),
 (37, 52, NULL, NULL),
-(38, 53, NULL, NULL);
+(38, 53, NULL, NULL),
+(39, 54, NULL, NULL),
+(40, 55, NULL, NULL),
+(41, 56, NULL, NULL),
+(42, 57, NULL, NULL),
+(43, 58, NULL, NULL),
+(44, 59, NULL, NULL),
+(45, 61, NULL, NULL),
+(46, 63, NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
