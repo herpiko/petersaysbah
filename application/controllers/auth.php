@@ -364,7 +364,7 @@ class Auth extends CI_Controller
 						unset($data['password']); // Clear password (just for any case)
 						//$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'Login'));
 
-						// redirect('/reg_ok');
+						redirect('/reg_ok');
 
 						
 					}
