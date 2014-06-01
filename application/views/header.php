@@ -3,11 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-<<<<<<< HEAD
   <title><?php echo $title ?> - PPDB Online SMA Negeri 1 Dompu</title>
-=======
-  <title><?php echo $title ?> - PSB Online SMA Negeri 1 Dompu</title>
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -41,11 +37,7 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-<<<<<<< HEAD
 			<h3>Penerimaan Peserta Didik Baru - SMA Negeri 1 Dompu
-=======
-			<h3>Penerimaan Siswa Baru Daring - SMA Negeri 1 Dompu
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			</h3>
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
@@ -69,17 +61,10 @@
 						} ?>>
 							<a href="<?php echo $base_url; ?>jadwal">Jadwal</a>
 						</li>
-<<<<<<< HEAD
 						<li <?php if ($title=="Persyaratan Pendaftaran") {
 							echo "class=\"active\"";
 						} ?>>
 							<a href="<?php echo $base_url; ?>persyaratan">Persyaratan</a>
-=======
-						<li <?php if ($title=="Daya Tampung") {
-							echo "class=\"active\"";
-						} ?>>
-							<a href="<?php echo $base_url; ?>dayatampung">Daya Tampung</a>
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 						</li>
 						<li <?php if ($title=="Formulir Pendaftaran") {
 							echo "class=\"active\"";
@@ -93,16 +78,11 @@
 						 ?>
 							
 						</li>
-<<<<<<< HEAD
 						<li <?php if ($title=="Profil") {
-=======
-						<li <?php if ($title=="Peringkat") {
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 							echo "class=\"active\"";
 						} ?>>
 						<?php 
 							if ($is_logged_in) {
-<<<<<<< HEAD
 								if ($username!='admin') {
 								echo "<a href=\"".$base_url."profil\">Profil</a>";
 								}
@@ -156,24 +136,11 @@
 						</li>
 						</li>
 						
-=======
-								echo "<a href=\"".$base_url."peringkat\">Peringkat</a>";
-							}
-							
-						?>
-						
-						</li>
-						</li>
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 						<li>
 						<?php 
 							if ($is_logged_in) {
 								if ($username!='admin') {
-<<<<<<< HEAD
 								echo "<a target=\"_blank\" href=\"".$base_url."profil/cetak/".$user_id."\">Cetak Bukti Pendaftaran</a>";
-=======
-								echo "<a target=\"_blank\" href=\"".$base_url."cetak\">Cetak lembar registrasi</a>";
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 								}
 								
 							}

@@ -22,11 +22,7 @@ class Ekspor_data extends CI_Controller
 
 			$this->load->model('m_calon');
 			
-<<<<<<< HEAD
 			// $data['standar_nilai']="6.0";
-=======
-			// $data['standar_nilai']=$this->m_calon->standar_nilai();
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 			// $data['title']="Lembar Registrasi";
 			// $data['is_logged_in']=$this->tank_auth->is_logged_in();
@@ -41,7 +37,6 @@ class Ekspor_data extends CI_Controller
 			$this->load->library('export');
 			$this->load->model('m_calon');
 			$sql = $this->m_calon->get_all();
-<<<<<<< HEAD
 			$sql=$sql->result_array();
 			$sql_revised=array();
 			$i=0;
@@ -57,9 +52,6 @@ class Ekspor_data extends CI_Controller
 			}
 			// print_r($sql_revised);
 			$this->export->to_excel($sql_revised, 'data_peserta_psb'); 
-=======
-			$this->export->to_excel($sql, 'nameForFile'); 
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			
 
 			}

@@ -17,11 +17,7 @@ class Statistik extends CI_Controller
 		// } else {
 			$this->load->model('m_calon');
 			
-<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
-=======
-			$data['standar_nilai']=$this->m_calon->standar_nilai();
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			
 			$data['title']="Statistik";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();

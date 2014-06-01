@@ -11,7 +11,6 @@
 					
 <?php 
 if ($is_logged_in) {
-<<<<<<< HEAD
 echo "<h3>".$title."</h3>";
 if ($username=='admin') {
 echo "<form action=\"".$base_url."peringkat/bulkaction\" method=\"POST\">";
@@ -65,18 +64,10 @@ if ($username=='admin') {
 	echo "</form>";
 }
 
-=======
-echo "<h3>Peringkat</h3>";
-if ($username=='admin') {
-	echo "<a href=\"".$base_url."ekspor_data\" class=\"pull-right btn btn-default\">Eksport data ke berkas Excel</a><br><br>";
-}
-echo $table;
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 } else {
 echo "<div class=\"alert alert-danger\" style=\"padding:5px\"> Anda harus login untuk dapat melihat halaman peringkat.</div>";
 }
 ?>
-<<<<<<< HEAD
 <script type="text/javascript">
  var idList = ";"
   
@@ -109,9 +100,5 @@ echo "<div class=\"alert alert-danger\" style=\"padding:5px\"> Anda harus login 
   }
 
 </script>
-=======
-
-		
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 </div>

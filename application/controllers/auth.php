@@ -27,7 +27,6 @@ class Auth extends CI_Controller
 	 *
 	 * @return void
 	 */
-<<<<<<< HEAD
 	function freeze() {
 			$this->load->model('m_calon');
 			$data['title']="Pendaftaran belum dibuka";
@@ -52,8 +51,6 @@ class Auth extends CI_Controller
 			$this->load->view('sidebar');
 			$this->load->view('footer');
 	}
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	function login()
 	{
 		if ($this->tank_auth->is_logged_in()) {									// logged in
@@ -94,7 +91,6 @@ class Auth extends CI_Controller
 						$this->form_validation->set_value('password'),
 						$this->form_validation->set_value('remember'),
 						$data['login_by_username'],
-<<<<<<< HEAD
 						$data['login_by_email'])) {	
 					$username	= $this->tank_auth->get_username();							// success
 					if ($username=="admin") {
@@ -103,10 +99,6 @@ class Auth extends CI_Controller
 						redirect('/profil');	
 					}
 					
-=======
-						$data['login_by_email'])) {								// success
-					redirect('');
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 				} else {
 					$errors = $this->tank_auth->get_error_message();
@@ -158,14 +150,11 @@ class Auth extends CI_Controller
 		$this->_show_message($this->lang->line('auth_message_logged_out'));
 	}
 
-<<<<<<< HEAD
 	function killyourself()
 	{
 		$this->tank_auth->logout();
 	}
 
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	/**
 	 * Register user on the site
 	 *
@@ -174,10 +163,7 @@ class Auth extends CI_Controller
 	function register()
 	{
 
-<<<<<<< HEAD
 		
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 
 		if ($this->tank_auth->is_logged_in()) {									// logged in
@@ -211,16 +197,12 @@ class Auth extends CI_Controller
 
 			$email_activation = $this->config->item('email_activation', 'tank_auth');
 
-<<<<<<< HEAD
 			if ($this->form_validation->run()) {	 					// validation ok	
 
 				if ($_FILES['userfile']['type']=="image/jpg") {
 						redirect('/upload_failed');
 						exit();
 					}	
-=======
-			if ($this->form_validation->run()) {								// validation ok
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 				if (!is_null($data = $this->tank_auth->create_user(
 						$use_username ? $this->form_validation->set_value('username') : '',
 						$this->form_validation->set_value('email'),
@@ -228,7 +210,6 @@ class Auth extends CI_Controller
 						$email_activation))) {									// success
 
 					//insert calon data
-<<<<<<< HEAD
 		$this->load->model('m_calon');
 		$this->load->model('m_sch');
 		$email=$this->input->post('email');
@@ -267,25 +248,10 @@ class Auth extends CI_Controller
 		$asal=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($asal))));
 		
 			
-=======
-					$this->load->model('m_calon');
-		$email=$this->input->post('email');
-		$passwd="";
-		$nama=$this->input->post('nama');
-		$tempatlahir=$this->input->post('tempatlahir');
-		$tanggallahir=$this->input->post('tanggallahir');
-		$kelamin=$this->input->post('kelamin');
-		$alamat=$this->input->post('alamat');
-		$notelp=$this->input->post('notelp');
-		$nohp=$this->input->post('nohp');
-		$asal=$this->input->post('asal');
-		
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		$nilai_a=$this->input->post('nilai_a');
 		$nilai_b=$this->input->post('nilai_b');
 		$nilai_c=$this->input->post('nilai_c');
 		$nilai_d=$this->input->post('nilai_d');
-<<<<<<< HEAD
 		// $nilai_e=$this->input->post('nilai_e');
 		$nilai_total=$nilai_a+$nilai_b+$nilai_c+$nilai_d;
 		$nilai_f=$nilai_total/4;
@@ -334,11 +300,6 @@ class Auth extends CI_Controller
 		
 		
 
-=======
-		$nilai=$nilai_a+$nilai_b+$nilai_c+$nilai_d;
-		$nilai_e=$nilai/4;
-		$nilai_e=substr($nilai_e, 0,4);
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		// $nilai_e=$this->input->post('nilai_e');
 		// $nilai_f=$this->input->post('nilai_f');
 		
@@ -353,7 +314,6 @@ class Auth extends CI_Controller
 		
 		$this->m_calon->set_username($username,$email);
 
-<<<<<<< HEAD
 		$id=$this->m_calon->get_id($email);
 
 
@@ -380,11 +340,6 @@ class Auth extends CI_Controller
 		
 
 
-=======
-		
-
-		$this->m_calon->submit($email,$passwd,$nama,$tempatlahir,$tanggallahir,$kelamin,$alamat,$notelp,$nohp,$asal,$nilai,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e);
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 					$data['site_name'] = $this->config->item('website_name', 'tank_auth');
 
@@ -396,12 +351,9 @@ class Auth extends CI_Controller
 						unset($data['password']); // Clear password (just for any case)
 
 						//$this->_show_message($this->lang->line('auth_message_registration_completed_1'));
-<<<<<<< HEAD
 						
 						// echo "berhasil";
 						// echo $_FILES['selfie']['name'];
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 						redirect('/reg_verifikasi');
 
 					} else {
@@ -411,20 +363,14 @@ class Auth extends CI_Controller
 						}
 						unset($data['password']); // Clear password (just for any case)
 						//$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'Login'));
-<<<<<<< HEAD
 
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 						redirect('/reg_ok');
 
 						
 					}
 				} else {
 					$errors = $this->tank_auth->get_error_message();
-<<<<<<< HEAD
 
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
@@ -436,7 +382,6 @@ class Auth extends CI_Controller
 				}
 			}
 
-<<<<<<< HEAD
 			
 			$this->load->model('m_pengaturan');
 			$pengaturan=$this->m_pengaturan->baca();
@@ -557,11 +502,6 @@ class Auth extends CI_Controller
 
 			$this->load->model('m_calon');
 			
-=======
-			$this->load->model('m_calon');
-			$data['standar_nilai']=$this->m_calon->standar_nilai();
-
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$data['use_username'] = $use_username;
 			$data['captcha_registration'] = $captcha_registration;
 			$data['use_recaptcha'] = $use_recaptcha;
@@ -618,11 +558,7 @@ class Auth extends CI_Controller
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
 			$this->load->model('m_calon');
-<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
-=======
-			$data['standar_nilai']=$this->m_calon->standar_nilai();
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_send_again', $data);
 			$this->load->view('sidebar');
@@ -695,11 +631,7 @@ class Auth extends CI_Controller
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
 			$this->load->model('m_calon');
-<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
-=======
-			$data['standar_nilai']=$this->m_calon->standar_nilai();
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_forgot', $data);
 			$this->load->view('sidebar');
@@ -757,7 +689,6 @@ class Auth extends CI_Controller
 	 *
 	 * @return void
 	 */
-<<<<<<< HEAD
 	function change_password_success(){
 					$data['title']="Ganti Password";
 					$data['is_logged_in']=$this->tank_auth->is_logged_in();
@@ -771,8 +702,6 @@ class Auth extends CI_Controller
 					$this->load->view('sidebar');
 					$this->load->view('footer');
 	}
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	function change_password()
 	{
 		if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
@@ -789,13 +718,9 @@ class Auth extends CI_Controller
 				if ($this->tank_auth->change_password(
 						$this->form_validation->set_value('old_password'),
 						$this->form_validation->set_value('new_password'))) {	// success
-<<<<<<< HEAD
 					// $this->_show_message($this->lang->line('auth_message_password_changed'));
 					redirect('/auth/change_password_success');
 					
-=======
-					$this->_show_message($this->lang->line('auth_message_password_changed'));
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 				} else {														// fail
 					$errors = $this->tank_auth->get_error_message();
@@ -809,11 +734,7 @@ class Auth extends CI_Controller
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
 			$this->load->model('m_calon');
-<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
-=======
-			$data['standar_nilai']=$this->m_calon->standar_nilai();
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_changepass', $data);
 			$this->load->view('sidebar');

@@ -7,11 +7,7 @@
 if ($calon_status=="1") {
 	echo "<a href=\"".$base_url."peringkat/verifikasi_unset/".$calon_id."\" class=\"btn btn-warning\">Batalkan validasi</a>";
 } else {
-<<<<<<< HEAD
 	echo "<a href=\"".$base_url."peringkat/verifikasi/".$calon_id."\" class=\"btn btn-success\">Valid</a>";
-=======
-	echo "<a href=\"".$base_url."peringkat/verifikasi/".$calon_id."\" class=\"btn btn-success\">Validasi</a>";
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 }
 ?>
 &nbsp
@@ -54,22 +50,15 @@ echo "<h3>Profil : ".$calon_nama."";
 if ($calon_status=="1") {
 			echo "Data valid &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v1.png\" width=\"20px\">";	
 			} else {
-<<<<<<< HEAD
 			echo "Belum valid &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
-=======
-			echo "Belum divalidasi &nbsp&nbsp<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			}
 ?>
 </strong>
 </div>
 <br>
-<<<<<<< HEAD
 <img src="<?php echo $calon_selfie; ?>" height="200">
 <br>
 <br>
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <table>
 <tr>
 	<td width="200">
@@ -95,7 +84,6 @@ if ($calon_status=="1") {
 </tr>
 <tr>
 	<td>
-<<<<<<< HEAD
 		Nama Panggilan
 	</td>
 	<td>
@@ -118,8 +106,6 @@ if ($calon_status=="1") {
 </tr>
 <tr>
 	<td>
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		Tempat & tanggal lahir
 	</td>
 	<td>
@@ -131,21 +117,13 @@ if ($calon_status=="1") {
 </tr>
 <tr>
 	<td>
-<<<<<<< HEAD
 		Agama
-=======
-		Jenis kelamin
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	</td>
 	<td>
 		: &nbsp
 	</td>
 	<td>
-<<<<<<< HEAD
 		<?php echo $calon_agama; ?>
-=======
-		<?php echo $calon_kelamin; ?>
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	</td>
 </tr>
 <tr>
@@ -159,7 +137,6 @@ if ($calon_status=="1") {
 		<?php echo $calon_alamat; ?>
 	</td>
 </tr>
-<<<<<<< HEAD
 
 
 <tr>
@@ -267,8 +244,6 @@ if ($calon_status=="1") {
 		<?php echo $calon_alamat_ortu; ?>
 	</td>
 </tr>
-=======
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <tr>
 	<td>
 		Nomor telepon
@@ -280,7 +255,6 @@ if ($calon_status=="1") {
 		<?php echo $calon_notelp; ?>
 	</td>
 </tr>
-<<<<<<< HEAD
 <tr><td><br></td></tr>
 <tr>
 	<td>
@@ -298,26 +272,16 @@ if ($calon_status=="1") {
 <tr>
 	<td>
 		Bahasa Indonesia
-=======
-<tr>
-	<td>
-		Nomor HP
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	</td>
 	<td>
 		: &nbsp
 	</td>
 	<td>
-<<<<<<< HEAD
 		<?php echo $calon_nilai_a; ?>	
-=======
-		<?php echo $calon_nohp; ?>
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	</td>
 </tr>
 <tr>
 	<td>
-<<<<<<< HEAD
 		Matematika
 	</td>
 	<td>
@@ -364,24 +328,14 @@ if ($calon_status=="1") {
 <tr>
 	<td>
 		Rata-rata Raport Semester I s/d V
-=======
-		Sekolah asal
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	</td>
 	<td>
 		: &nbsp
 	</td>
 	<td>
-<<<<<<< HEAD
 		<?php echo $calon_nilai_e; ?>	
 	</td>
 </tr>
-=======
-		<?php echo $calon_asal; ?>	
-	</td>
-</tr>
-
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <!-- <tr>
 	<td>
 		Berkas scan ijazah
