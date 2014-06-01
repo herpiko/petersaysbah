@@ -30,7 +30,7 @@ $lang['auth_message_unregistered'] = 'Your account has been deleted...';
 
 // Email subjects
 $lang['auth_subject_welcome'] = 'Welcome to %s!';
-$lang['auth_subject_activate'] = 'Welcome to %s!';
+$lang['auth_subject_activate'] = 'Terima kasih sudah mendaftar di %s!';
 $lang['auth_subject_forgot_password'] = 'Forgot your password on %s?';
 $lang['auth_subject_reset_password'] = 'Your new password on %s';
 $lang['auth_subject_change_email'] = 'Your new email address on %s';

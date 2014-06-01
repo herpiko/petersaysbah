@@ -1,3 +1,21 @@
+<link rel="stylesheet" href="<?php echo $base_url;?>assets/datepicker/css/datepicker.css">
+
+	    <style>
+		.datepicker{z-index:1151;}
+	    </style>
+	    <!--some script for datepicker-->
+	    <script>
+		$(function(){
+		    $("#tanggal").datepicker({
+			format:'dd-mm-yyyy'
+			
+		    });
+                });
+	    </script>
+
+<div class="row clearfix">
+				<div class="col-md-8 column">
+					<h3>Formulir Pendaftaran</h3>
 <?php
 if ($use_username) {
 	$username = array(
@@ -5,7 +23,7 @@ if ($use_username) {
 		'id'	=> 'username',
 		'value' => set_value('username'),
 		'maxlength'	=> $this->config->item('username_max_length', 'tank_auth'),
-		'size'	=> 30,
+		//'size'	=> 30,
 	);
 }
 $email = array(
@@ -37,6 +55,7 @@ $captcha = array(
 ?>
 <?php echo form_open($this->uri->uri_string()); ?>
 <table>
+	<tr><td><strong>Data akun</strong></td></tr>
 	<?php if ($use_username) { ?>
 	<tr>
 		<td><?php echo form_label('Username', $username['id']); ?></td>
@@ -45,17 +64,17 @@ $captcha = array(
 	</tr>
 	<?php } ?>
 	<tr>
-		<td><?php echo form_label('Email Address', $email['id']); ?></td>
+		<td width="200">Email</td>
 		<td><?php echo form_input($email); ?></td>
 		<td style="color: red;"><?php echo form_error($email['name']); ?><?php echo isset($errors[$email['name']])?$errors[$email['name']]:''; ?></td>
 	</tr>
 	<tr>
-		<td><?php echo form_label('Password', $password['id']); ?></td>
+		<td>Password</td>
 		<td><?php echo form_password($password); ?></td>
 		<td style="color: red;"><?php echo form_error($password['name']); ?></td>
 	</tr>
 	<tr>
-		<td><?php echo form_label('Confirm Password', $confirm_password['id']); ?></td>
+		<td>Konfirmasi password</td>
 		<td><?php echo form_password($confirm_password); ?></td>
 		<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
 	</tr>
@@ -95,6 +114,129 @@ $captcha = array(
 	</tr>
 	<?php }
 	} ?>
+	<tr><td></td><td><br><div class="alert-info">Data akun ini digunakan untuk login ke portal</div></td></tr>
+	<tr><td>
+				<br>	
+			<strong>Data Pribadi</strong>
+			</td>
+			</tr>
+			<tr>
+				<td>Nama Lengkap</td>
+				<td><input class="form-control" name="nama" data-validation="required" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Tempat Lahir</td>
+				<td><input class="form-control" name="tempatlahir" data-validation="required" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Tanggal Lahir</td>
+				<td><input id="tanggal" class="form-control" name="tanggallahir" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text">
+
+			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
+			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
+			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-datepicker.js"></script>
+				</td>
+			</tr>
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td><select class="form-control" name="kelamin" data-validation="required" type="text">
+				<option disabled>---</option>
+				<option disabled>Laki-laki</option>
+				<option disabled>Perempuan</option>
+				</select>
+				</td>	
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td><textarea row="2" class="form-control" name="alamat" data-validation="required" type="text"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Nomor Telepon</td>
+				<td><input class="form-control" name="notelp" data-validation="" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nomor Ponsel</td>
+				<td><input class="form-control" name="nohp" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>SMP Asal</td>
+				<td><input class="form-control" name="asal" data-validation="required" type="text"></td>	
+			</tr>
+
+			<tr>
+				<td><br>
+					<strong>Nilai Ujian</strong>
+				</td></tr>
+			<tr>
+				<td>Total Nilai Ujian Nasional</td>
+				<td><input class="form-control" name="nilai" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nilai Mata Pelajaran A</td>
+				<td><input class="form-control" name="nilai_a" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nilai Mata Pelajaran B</td>
+				<td><input class="form-control" name="nilai_b" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nilai Mata Pelajaran C</td>
+				<td><input class="form-control" name="nilai_c" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nilai Mata Pelajaran D</td>
+				<td><input class="form-control" name="nilai_d" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nilai Mata Pelajaran E</td>
+				<td><input class="form-control" name="nilai_e" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nilai Mata Pelajaran F</td>
+				<td><input class="form-control" name="nilai_f" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>
+					Berkas Scan Ijazah
+				</td>
+				<td>
+				<div class="form-group">
+							 <br><input id="exampleInputFile" type="file">
+							<p class="help-block">
+								Berkas JPG atau PDF, ukuran maksimal 200 Kb
+							</p>
+				</div>
+				</td>
+			</tr>
 </table>
-<?php echo form_submit('register', 'Register'); ?>
+<?php //echo form_submit('register', 'Register'); ?>
+<br>
+<input type="submit" name="register" value="Daftar" class="btn btn-primary">
 <?php echo form_close(); ?>
+
+
+<script type="text/javascript" src="<?php echo $base_url; ?>assets/js/validation.js"></script>
+ 
+<script>
+  $.validate({
+    modules : 'security','date'
+  });
+</script>
+
+<script> 
+
+ var myLanguage = {
+      requiredFields : 'Tidak boleh kosong',
+      badEmail : 'E-mail harus ditulis dengan benar',
+      lengthTooShortStart : 'Minimal ',
+      };
+
+  $.validate({
+    language : myLanguage
+
+
+});
+ </script>
+
+</div>

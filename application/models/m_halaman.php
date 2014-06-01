@@ -10,8 +10,8 @@ class M_halaman extends CI_Model{
 
 		$db=$this->load->database('default',TRUE);	
 		$query="SELECT * FROM halaman WHERE halaman_id='$id'";
-		$hasilquery=$db->query($query);
-		$result=$hasilquery->result_array();
+		$peringkatquery=$db->query($query);
+		$result=$peringkatquery->result_array();
 		$isi=$result[0];
 		return $isi;
 		}

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title><?php echo $title ?> - PSB Online SMA Negeri 1 Dompu</title>
+  <title><?php echo $title ?> - PPDB Online SMA Negeri 1 Dompu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -37,17 +37,16 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3>
-			SMA Negeri 1 Dompu
+			<h3>Penerimaan Peserta Didik Baru - SMA Negeri 1 Dompu
 			</h3>
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">PSB Online</a>
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">PSBD</a>
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li <?php if ($title=="Beranda") {
+						<li <?php if ($title=="Selamat Datang") {
 							echo "class=\"active\"";
 						} ?>>
 							<a href="<?php echo $base_url; ?>">Beranda</a>
@@ -62,27 +61,94 @@
 						} ?>>
 							<a href="<?php echo $base_url; ?>jadwal">Jadwal</a>
 						</li>
-						<li <?php if ($title=="Daya Tampung") {
+						<li <?php if ($title=="Persyaratan Pendaftaran") {
 							echo "class=\"active\"";
 						} ?>>
-							<a href="<?php echo $base_url; ?>dayatampung">Daya Tampung</a>
+							<a href="<?php echo $base_url; ?>persyaratan">Persyaratan</a>
 						</li>
 						<li <?php if ($title=="Formulir Pendaftaran") {
 							echo "class=\"active\"";
 						} ?>>
-						<?php 
-							if ($username!="admin") {
-								echo "<a href=\"".$base_url."daftar\">Pendaftaran</a>";
+						<?php
+
+							
+							if (!$is_logged_in) {
+								echo "<a href=\"".$base_url."index.php/auth/register\">Pendaftaran</a>";
 							}
 						 ?>
 							
 						</li>
-						<li <?php if ($title=="Peringkat") {
+						<li <?php if ($title=="Profil") {
 							echo "class=\"active\"";
 						} ?>>
-							<a href="<?php echo $base_url; ?>hasil">Peringkat</a>
+						<?php 
+							if ($is_logged_in) {
+								if ($username!='admin') {
+								echo "<a href=\"".$base_url."profil\">Profil</a>";
+								}
+								
+							}
+							
+						?>
 						</li>
-						<li <?php if ($title=="Statistik") {
+						
+						<?php 
+							if ($is_logged_in AND $username!="admin") {
+							echo "<li";
+							if ($title=="Peringkat") {
+							echo " class=\"active\"";
+							}
+							echo ">";
+									echo "<a href=\"".$base_url."peringkat\">Peringkat</a>";	
+							echo "</li>";
+							}
+							
+						?>
+						<?php 
+							if ($is_logged_in) {
+								if ($username=="admin") {
+
+						echo "<li class=\"dropdown";
+						if ($title=="Peringkat") {
+							echo " active";
+							}
+						echo "\">";
+						
+						echo "<a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">";
+									 echo "Daftar Peserta"; 
+								echo "</a>
+									<ul class=\"dropdown-menu\">
+										<li>
+											<a href=\"".$base_url."peringkat\">Peringkat</a>
+										</li>
+										<li>
+											<a href=\"".$base_url."peringkat/out\">Tidak lolos</a>
+										</li>
+										<li>
+											<a href=\"".$base_url."peringkat/daftardis\">Diskualifikasi</a>
+										</li>
+									</ul>
+								</li>";
+							}
+						}
+						?>
+						
+						</li>
+						</li>
+						
+						<li>
+						<?php 
+							if ($is_logged_in) {
+								if ($username!='admin') {
+								echo "<a target=\"_blank\" href=\"".$base_url."profil/cetak/".$user_id."\">Cetak Bukti Pendaftaran</a>";
+								}
+								
+							}
+							
+						?>
+						
+						</li>
+					<!-- 	<li <?php if ($title=="Statistik") {
 							echo "class=\"active\"";
 						} ?>>
 						<?php 
@@ -90,7 +156,7 @@
 								echo "<a href=\"".$base_url."statistik\">Statistik</a>";
 							}
 						 ?>
-						</li>
+						</li> -->
 						<li <?php if ($title=="Pengaturan") {
 							echo "class=\"active\"";
 						} ?>>

@@ -68,7 +68,7 @@ $config['password_max_length'] = 20;
 | 'login_attempt_expire' = Time to live for every attempt to login. Default is 24 hours (60*60*24).
 |--------------------------------------------------------------------------
 */
-$config['login_by_username'] = TRUE;
+$config['login_by_username'] = FALSE;
 $config['login_by_email'] = TRUE;
 $config['login_record_ip'] = TRUE;
 $config['login_record_time'] = TRUE;
@@ -110,13 +110,13 @@ $config['forgot_password_expire'] = 60*15;
 |--------------------------------------------------------------------------
 */
 $config['captcha_path'] = 'captcha/';
-$config['captcha_fonts_path'] = 'captcha/fonts/5.ttf';
-$config['captcha_width'] = 200;
-$config['captcha_height'] = 50;
-$config['captcha_font_size'] = 14;
+$config['captcha_fonts_path'] = 'captcha/fonts/3.ttf';
+$config['captcha_width'] = 250;
+$config['captcha_height'] = 30;
+$config['captcha_font_size'] = 18;
 $config['captcha_grid'] = FALSE;
 $config['captcha_expire'] = 180;
-$config['captcha_case_sensitive'] = TRUE;
+$config['captcha_case_sensitive'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------

@@ -27,6 +27,30 @@ class Auth extends CI_Controller
 	 *
 	 * @return void
 	 */
+	function freeze() {
+			$this->load->model('m_calon');
+			$data['title']="Pendaftaran belum dibuka";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->view('header', $data);
+			$this->load->view('v_reg_pesan', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
+	}
+	function tutup() {
+			$this->load->model('m_calon');
+			$data['title']="Pendaftaran telah ditutup";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->view('header', $data);
+			$this->load->view('v_reg_pesan', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
+	}
 	function login()
 	{
 		if ($this->tank_auth->is_logged_in()) {									// logged in
@@ -67,8 +91,14 @@ class Auth extends CI_Controller
 						$this->form_validation->set_value('password'),
 						$this->form_validation->set_value('remember'),
 						$data['login_by_username'],
-						$data['login_by_email'])) {								// success
-					redirect('');
+						$data['login_by_email'])) {	
+					$username	= $this->tank_auth->get_username();							// success
+					if ($username=="admin") {
+						redirect('/peringkat');
+					} else {
+						redirect('/profil');	
+					}
+					
 
 				} else {
 					$errors = $this->tank_auth->get_error_message();
@@ -92,11 +122,13 @@ class Auth extends CI_Controller
 					$data['captcha_html'] = $this->_create_captcha();
 				}
 			}
+
 			$data['title']="Login";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
+			
 			$this->load->view('header', $data);
 			$this->load->view('v_login', $data);
 			$this->load->view('sidebar_login');
@@ -118,6 +150,11 @@ class Auth extends CI_Controller
 		$this->_show_message($this->lang->line('auth_message_logged_out'));
 	}
 
+	function killyourself()
+	{
+		$this->tank_auth->logout();
+	}
+
 	/**
 	 * Register user on the site
 	 *
@@ -125,6 +162,10 @@ class Auth extends CI_Controller
 	 */
 	function register()
 	{
+
+		
+
+
 		if ($this->tank_auth->is_logged_in()) {									// logged in
 			redirect('');
 
@@ -156,12 +197,149 @@ class Auth extends CI_Controller
 
 			$email_activation = $this->config->item('email_activation', 'tank_auth');
 
-			if ($this->form_validation->run()) {								// validation ok
+			if ($this->form_validation->run()) {	 					// validation ok	
+
+				if ($_FILES['userfile']['type']=="image/jpg") {
+						redirect('/upload_failed');
+						exit();
+					}	
 				if (!is_null($data = $this->tank_auth->create_user(
 						$use_username ? $this->form_validation->set_value('username') : '',
 						$this->form_validation->set_value('email'),
 						$this->form_validation->set_value('password'),
 						$email_activation))) {									// success
+
+					//insert calon data
+		$this->load->model('m_calon');
+		$this->load->model('m_sch');
+		$email=$this->input->post('email');
+		$passwd="";
+		$nama=$this->input->post('nama');
+		
+		$panggilan=$this->input->post('panggilan');
+		$kelamin=$this->input->post('kelamin');
+		$tempatlahir=$this->input->post('tempatlahir');
+		$tanggallahir=$this->input->post('tanggallahir');
+		$agama=$this->input->post('agama');
+		$nis=$this->input->post('nis');
+		$nama_ayah=$this->input->post('nama_ayah');
+		$nama_ibu=$this->input->post('nama_ibu');
+		$pendidikan_ayah=$this->input->post('pendidikan_ayah');
+		$pendidikan_ibu=$this->input->post('pendidikan_ibu');
+		$pekerjaan_ayah=$this->input->post('pekerjaan_ayah');
+		$pekerjaan_ibu=$this->input->post('pekerjaan_ibu');
+		$alamat=$this->input->post('alamat');
+		$alamat_ortu=$this->input->post('alamat_ortu');
+		$notelp=$this->input->post('notelp');
+		$asal=$this->input->post('asal');
+		$selfie=$this->input->post('selfie');
+		$sekolahlain=$this->input->post('sekolahlain');
+		
+		$nama=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($nama))));
+		$panggilan=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($panggilan))));
+		$tempatlahir=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($tempatlahir))));
+		$agama=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($agama))));
+		$nama_ayah=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($nama_ayah))));
+		$nama_ibu=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($nama_ibu))));
+		$pekerjaan_ayah=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($pekerjaan_ayah))));
+		$pekerjaan_ibu=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($pekerjaan_ibu))));
+		$alamat=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($alamat))));
+		$alamat_ortu=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($alamat_ortu))));
+		$asal=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($asal))));
+		
+			
+		$nilai_a=$this->input->post('nilai_a');
+		$nilai_b=$this->input->post('nilai_b');
+		$nilai_c=$this->input->post('nilai_c');
+		$nilai_d=$this->input->post('nilai_d');
+		// $nilai_e=$this->input->post('nilai_e');
+		$nilai_total=$nilai_a+$nilai_b+$nilai_c+$nilai_d;
+		$nilai_f=$nilai_total/4;
+		$nilai_f=substr($nilai_f, 0,4);
+
+		$nilai_bi_1=$this->input->post('nilai_bi_1');
+		$nilai_bi_2=$this->input->post('nilai_bi_2');
+		$nilai_bi_3=$this->input->post('nilai_bi_3');
+		$nilai_bi_4=$this->input->post('nilai_bi_4');
+		$nilai_bi_5=$this->input->post('nilai_bi_5');
+		$nilai_bi_av=($nilai_bi_1+$nilai_bi_2+$nilai_bi_3+$nilai_bi_4+$nilai_bi_5)/5;
+
+		$nilai_ma_1=$this->input->post('nilai_ma_1');
+		$nilai_ma_2=$this->input->post('nilai_ma_2');
+		$nilai_ma_3=$this->input->post('nilai_ma_3');
+		$nilai_ma_4=$this->input->post('nilai_ma_4');
+		$nilai_ma_5=$this->input->post('nilai_ma_5');
+		$nilai_ma_av=($nilai_ma_1+$nilai_ma_2+$nilai_ma_3+$nilai_ma_4+$nilai_ma_5)/5;
+
+		$nilai_en_1=$this->input->post('nilai_en_1');
+		$nilai_en_2=$this->input->post('nilai_en_2');
+		$nilai_en_3=$this->input->post('nilai_en_3');
+		$nilai_en_4=$this->input->post('nilai_en_4');
+		$nilai_en_5=$this->input->post('nilai_en_5');
+		$nilai_en_av=($nilai_en_1+$nilai_en_2+$nilai_en_3+$nilai_en_4+$nilai_en_5)/5;
+
+		$nilai_sc_1=$this->input->post('nilai_sc_1');
+		$nilai_sc_2=$this->input->post('nilai_sc_2');
+		$nilai_sc_3=$this->input->post('nilai_sc_3');
+		$nilai_sc_4=$this->input->post('nilai_sc_4');
+		$nilai_sc_5=$this->input->post('nilai_sc_5');
+		$nilai_sc_av=($nilai_sc_1+$nilai_sc_2+$nilai_sc_3+$nilai_sc_4+$nilai_sc_5)/5;
+		
+		$nilai_e=($nilai_bi_av+$nilai_ma_av+$nilai_en_av+$nilai_sc_av)/4;
+		
+		if ($asal==0) {
+			$asal=$sekolahlain;
+			$multipler=3;
+		} else {
+			$multipler=$this->m_sch->get_multipler($asal);
+			$asal=$this->m_sch->get_name($asal);
+		}
+		
+		
+		$nilai_g=((40/100)*($nilai_f*$multipler))+((60/100)*($nilai_e*$multipler));
+		
+		
+
+		// $nilai_e=$this->input->post('nilai_e');
+		// $nilai_f=$this->input->post('nilai_f');
+		
+		$x="";
+		$i=0;
+		while ($x!="@") {
+			$x=substr($email, $i,1);
+			$i++;
+		}
+		$i--;
+		$username=substr($email,0,$i);
+		
+		$this->m_calon->set_username($username,$email);
+
+		$id=$this->m_calon->get_id($email);
+
+
+		// Selfie block
+		$config['upload_path'] = './uploads/selfie';
+		$config['allowed_types'] = 'jpg';
+		$config['max_size']	= '512';
+		$config['file_name']  = $id."_".md5($email).".jpg";
+		$selfie=$this->config->base_url()."uploads/selfie/".$config['file_name'];
+
+		$this->load->library('upload', $config);
+		
+		$this->upload->do_upload();
+		// if ( ! $this->upload->do_upload())
+		// {
+		// 	$error = array('error' => $this->upload->display_errors());
+
+		// }
+		
+
+		$this->m_calon->submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_av,$nilai_sc_1,$nilai_sc_2,$nilai_sc_3,$nilai_sc_4,$nilai_sc_5,$nilai_sc_av);
+
+
+		
+
+
 
 					$data['site_name'] = $this->config->item('website_name', 'tank_auth');
 
@@ -172,7 +350,11 @@ class Auth extends CI_Controller
 
 						unset($data['password']); // Clear password (just for any case)
 
-						$this->_show_message($this->lang->line('auth_message_registration_completed_1'));
+						//$this->_show_message($this->lang->line('auth_message_registration_completed_1'));
+						
+						// echo "berhasil";
+						// echo $_FILES['selfie']['name'];
+						redirect('/reg_verifikasi');
 
 					} else {
 						if ($this->config->item('email_account_details', 'tank_auth')) {	// send "welcome" email
@@ -180,11 +362,15 @@ class Auth extends CI_Controller
 							$this->_send_email('welcome', $data['email'], $data);
 						}
 						unset($data['password']); // Clear password (just for any case)
+						//$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'Login'));
 
-						$this->_show_message($this->lang->line('auth_message_registration_completed_2').' '.anchor('/auth/login/', 'Login'));
+						redirect('/reg_ok');
+
+						
 					}
 				} else {
 					$errors = $this->tank_auth->get_error_message();
+
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
@@ -195,10 +381,141 @@ class Auth extends CI_Controller
 					$data['captcha_html'] = $this->_create_captcha();
 				}
 			}
+
+			
+			$this->load->model('m_pengaturan');
+			$pengaturan=$this->m_pengaturan->baca();
+			
+			$tetapan=$this->m_pengaturan->baca();
+			$tglbuka=$tetapan[1]['nilai'];
+			$tgltutup=$tetapan[2]['nilai'];
+			$tglpengumuman=$tetapan[3]['nilai'];
+
+			$today = date('d-m-Y');
+			
+			$tglbuka_d=substr($tglbuka, 0,2);
+			if (substr($tglbuka_d, 0,1)=="0") {
+				$tglbuka_d=substr($tglbuka_d, 1,1);
+			}
+			$tglbuka_m=substr($tglbuka, 3,2);
+			if (substr($tglbuka_m, 0,1)=="0") {
+				$tglbuka_m=substr($tglbuka_m, 1,1);
+			}
+
+			$tgltutup_d=substr($tgltutup, 0,2);
+			if (substr($tgltutup_d, 0,1)=="0") {
+				$tgltutup_d=substr($tgltutup_d, 1,1);
+			}
+			$tgltutup_m=substr($tgltutup, 3,2);
+			if (substr($tgltutup_m, 0,1)=="0") {
+				$tgltutup_m=substr($tgltutup_m, 1,1);
+			}
+
+			$tglpengumuman_d=substr($tglpengumuman, 0,2);
+			if (substr($tglpengumuman_d, 0,1)=="0") {
+				$tglpengumuman_d=substr($tglpengumuman_d, 1,1);
+			}
+			$tglpengumuman_m=substr($tglpengumuman, 3,2);
+			if (substr($tglpengumuman_m, 0,1)=="0") {
+				$tglpengumuman_m=substr($tglpengumuman_m, 1,1);
+			}
+
+			$today_d=substr($today, 0,2);
+			if (substr($today_d, 0,1)=="0") {
+				$today_d=substr($today_d, 1,1);
+			}
+			$today_m=substr($today, 3,2);
+			if (substr($today_m, 0,1)=="0") {
+				$today_m=substr($today_m, 1,1);
+			}
+
+			//string pesan
+			$akandibuka="Pendaftaran akan dibuka tanggal ".$tglbuka;
+			$telahdibuka="Pendaftaran telah dibuka dan akan ditutup tanggal ".$tgltutup;
+			$telahditutup="Pendaftaran telah ditutup. Pengumuman akan dirilis tanggal ".$tglpengumuman;
+			$pengumuman="Hasil pengumuman dapat dilihat <a href=\"\">di sini</a>";
+
+			$pesan="";
+			if ($today_m==$tglbuka_m) {
+				if ($tglbuka_m==$tgltutup_m) {
+					if ($today_d<$tglbuka_d) {
+						$pesan=$akandibuka;
+						} else {
+							if ($today_d<$tgltutup_d) {
+								$pesan=$telahdibuka;
+							} else {
+								if ($today_d<$tglpengumuman_d) {
+									redirect('/auth/tutup');
+									}	
+								if ($today_d>$tglpengumuman_d) {
+									$pesan=$pengumuman;
+									}
+						}
+					}
+				} else {
+					if ($tglbuka_m<$tgltutup_m) {
+						if ($today_m<$tgltutup_m) {
+							$pesan=$telahdibuka;
+						}
+						if ($today_m==$tgltutup_m) {
+							if ($today_d<$tgltutup_d) {
+								$pesan=$telahdibuka;
+							} else {
+								if ($today_d<$tglpengumuman_d) {
+									redirect('/auth/tutup');
+									}	
+								if ($today_d>$tglpengumuman_d) {
+									$pesan=$pengumuman;
+									}
+							}
+						}
+					}
+				}
+			}
+
+			if ($today_m<$tglbuka_m){
+				$pesan=$akandibuka;
+			}
+
+			if ($today_m>$tglbuka_m){
+				if ($tglbuka_m<$tgltutup_m) {
+						if ($today_m<$tgltutup_m) {
+							$pesan=$telahdibuka;
+						}
+						if ($today_m==$tgltutup_m) {
+							if ($today_d<$tgltutup_d) {
+								$pesan=$telahdibuka;
+							} else {
+								if ($today_d<$tglpengumuman_d) {
+									redirect('/auth/tutup');
+									}	
+								if ($today_d>$tglpengumuman_d) {
+									$pesan=$pengumuman;
+									}
+							}
+						}
+					}
+			}
+
+
+
+
+			$this->load->model('m_calon');
+			
 			$data['use_username'] = $use_username;
 			$data['captcha_registration'] = $captcha_registration;
 			$data['use_recaptcha'] = $use_recaptcha;
-			$this->load->view('auth/register_form', $data);
+			$data['title']="Formulir Pendaftaran";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->view('header', $data);
+			$this->load->view('v_reg', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
+
+
 		}
 	}
 
@@ -233,7 +550,20 @@ class Auth extends CI_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/send_again_form', $data);
+
+
+			$data['title']="Kirim ulang email verifikasi";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']="6.0";
+			$this->load->view('header', $data);
+			$this->load->view('v_reg_send_again', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
+			
 		}
 	}
 
@@ -252,7 +582,8 @@ class Auth extends CI_Controller
 		// Activate user
 		if ($this->tank_auth->activate_user($user_id, $new_email_key)) {		// success
 			$this->tank_auth->logout();
-			$this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
+			// $this->_show_message($this->lang->line('auth_message_activation_completed').' '.anchor('/auth/login/', 'Login'));
+			redirect('reg_activated');
 
 		} else {																// fail
 			$this->_show_message($this->lang->line('auth_message_activation_failed'));
@@ -293,7 +624,18 @@ class Auth extends CI_Controller
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/forgot_password_form', $data);
+
+			$data['title']="Lupa password";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']="6.0";
+			$this->load->view('header', $data);
+			$this->load->view('v_reg_forgot', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
 		}
 	}
 
@@ -347,6 +689,19 @@ class Auth extends CI_Controller
 	 *
 	 * @return void
 	 */
+	function change_password_success(){
+					$data['title']="Ganti Password";
+					$data['is_logged_in']=$this->tank_auth->is_logged_in();
+					$data['user_id']	= $this->tank_auth->get_user_id();
+					$data['username']	= $this->tank_auth->get_username();
+					$data['base_url']=$this->config->base_url();
+					$data['pesan']="Password berhasil diganti.";
+					$this->load->model('m_calon');
+					$this->load->view('header', $data);
+					$this->load->view('v_reg_changepass_success', $data);
+					$this->load->view('sidebar');
+					$this->load->view('footer');
+	}
 	function change_password()
 	{
 		if (!$this->tank_auth->is_logged_in()) {								// not logged in or not activated
@@ -363,14 +718,28 @@ class Auth extends CI_Controller
 				if ($this->tank_auth->change_password(
 						$this->form_validation->set_value('old_password'),
 						$this->form_validation->set_value('new_password'))) {	// success
-					$this->_show_message($this->lang->line('auth_message_password_changed'));
+					// $this->_show_message($this->lang->line('auth_message_password_changed'));
+					redirect('/auth/change_password_success');
+					
 
 				} else {														// fail
 					$errors = $this->tank_auth->get_error_message();
 					foreach ($errors as $k => $v)	$data['errors'][$k] = $this->lang->line($v);
 				}
 			}
-			$this->load->view('auth/change_password_form', $data);
+
+			$data['title']="Ganti password...";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->model('m_calon');
+			$data['standar_nilai']="6.0";
+			$this->load->view('header', $data);
+			$this->load->view('v_reg_changepass', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
+			//$this->load->view('auth/change_password_form', $data);
 		}
 	}
 

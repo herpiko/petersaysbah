@@ -15,6 +15,9 @@ class Statistik extends CI_Controller
 		// if (!$this->tank_auth->is_logged_in()) {
 		// 	redirect('/auth/login/');
 		// } else {
+			$this->load->model('m_calon');
+			
+			$data['standar_nilai']="6.0";
 			
 			$data['title']="Statistik";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
@@ -25,6 +28,9 @@ class Statistik extends CI_Controller
 			$this->load->view('v_statistik', $data);
 			$this->load->view('sidebar');
 			$this->load->view('footer');
+
+			$x=$this->m_calon->get_all();
+			print_r($x);
 
 
 		// }
