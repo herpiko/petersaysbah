@@ -1063,7 +1063,7 @@ class CI_Upload {
 		 */
 		if (DIRECTORY_SEPARATOR !== '\\')
 		{
-			$cmd = 'file --brief --mime ' . escapeshellarg($file['tmp_name']) . ' 2>&1';
+			$cmd = 'file --brief --mime ' . @escapeshellarg($file['tmp_name']) . ' 2>&1';
 
 			if (function_exists('exec'))
 			{
