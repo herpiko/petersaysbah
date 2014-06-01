@@ -14,7 +14,10 @@ class Welcome extends CI_Controller
  
 		$this->load->helper('url'); //You should autoload this one ;)
 		$this->load->helper('ckeditor');
+<<<<<<< HEAD
 		$this->load->model('m_calon');
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
  
  
 		//Ckeditor's configuration
@@ -103,6 +106,7 @@ class Welcome extends CI_Controller
 
 		
 			$this->load->model('m_halaman');
+<<<<<<< HEAD
 			// $this->load->model('m_calon');
 			// $data['standar_nilai']="6.0";
 			// $this->load->model('m_pengaturan');
@@ -219,6 +223,124 @@ class Welcome extends CI_Controller
 
 
 			// $data['pesan']=$pesan;
+=======
+			$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+			$this->load->model('m_pengaturan');
+			$tetapan=$this->m_pengaturan->baca();
+			$tglbuka=$tetapan[1]['nilai'];
+			$tgltutup=$tetapan[2]['nilai'];
+			$tglpengumuman=$tetapan[3]['nilai'];
+
+			$today = date('d-m-Y');
+			
+			$tglbuka_d=substr($tglbuka, 0,2);
+			if (substr($tglbuka_d, 0,1)=="0") {
+				$tglbuka_d=substr($tglbuka_d, 1,1);
+			}
+			$tglbuka_m=substr($tglbuka, 3,2);
+			if (substr($tglbuka_m, 0,1)=="0") {
+				$tglbuka_m=substr($tglbuka_m, 1,1);
+			}
+
+			$tgltutup_d=substr($tgltutup, 0,2);
+			if (substr($tgltutup_d, 0,1)=="0") {
+				$tgltutup_d=substr($tgltutup_d, 1,1);
+			}
+			$tgltutup_m=substr($tgltutup, 3,2);
+			if (substr($tgltutup_m, 0,1)=="0") {
+				$tgltutup_m=substr($tgltutup_m, 1,1);
+			}
+
+			$tglpengumuman_d=substr($tglpengumuman, 0,2);
+			if (substr($tglpengumuman_d, 0,1)=="0") {
+				$tglpengumuman_d=substr($tglpengumuman_d, 1,1);
+			}
+			$tglpengumuman_m=substr($tglpengumuman, 3,2);
+			if (substr($tglpengumuman_m, 0,1)=="0") {
+				$tglpengumuman_m=substr($tglpengumuman_m, 1,1);
+			}
+
+			$today_d=substr($today, 0,2);
+			if (substr($today_d, 0,1)=="0") {
+				$today_d=substr($today_d, 1,1);
+			}
+			$today_m=substr($today, 3,2);
+			if (substr($today_m, 0,1)=="0") {
+				$today_m=substr($today_m, 1,1);
+			}
+
+			//string pesan
+			$akandibuka="Pendaftaran akan dibuka tanggal ".$tglbuka;
+			$telahdibuka="Pendaftaran telah dibuka dan akan ditutup tanggal ".$tgltutup;
+			$telahditutup="Pendaftaran telah ditutup. Pengumuman akan dirilis tanggal ".$tglpengumuman;
+			$pengumuman="Hasil pengumuman dapat dilihat <a href=\"\">di sini</a>";
+
+			$pesan="";
+			if ($today_m==$tglbuka_m) {
+				if ($tglbuka_m==$tgltutup_m) {
+					if ($today_d<$tglbuka_d) {
+						$pesan=$akandibuka;
+						} else {
+							if ($today_d<$tgltutup_d) {
+								$pesan=$telahdibuka;
+							} else {
+								if ($today_d<$tglpengumuman_d) {
+									$pesan=$telahditutup;
+									}	
+								if ($today_d>$tglpengumuman_d) {
+									$pesan=$pengumuman;
+									}
+						}
+					}
+				} else {
+					if ($tglbuka_m<$tgltutup_m) {
+						if ($today_m<$tgltutup_m) {
+							$pesan=$telahdibuka;
+						}
+						if ($today_m==$tgltutup_m) {
+							if ($today_d<$tgltutup_d) {
+								$pesan=$telahdibuka;
+							} else {
+								if ($today_d<$tglpengumuman_d) {
+									$pesan=$telahditutup;
+									}	
+								if ($today_d>$tglpengumuman_d) {
+									$pesan=$pengumuman;
+									}
+							}
+						}
+					}
+				}
+			}
+
+			if ($today_m<$tglbuka_m){
+				$pesan=$akandibuka;
+			}
+
+			if ($today_m>$tglbuka_m){
+				if ($tglbuka_m<$tgltutup_m) {
+						if ($today_m<$tgltutup_m) {
+							$pesan=$telahdibuka;
+						}
+						if ($today_m==$tgltutup_m) {
+							if ($today_d<$tgltutup_d) {
+								$pesan=$telahdibuka;
+							} else {
+								if ($today_d<$tglpengumuman_d) {
+									$pesan=$telahditutup;
+									}	
+								if ($today_d>$tglpengumuman_d) {
+									$pesan=$pengumuman;
+									}
+							}
+						}
+					}
+			}
+
+
+			$data['pesan']=$pesan;
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			
 			$isi=$this->input->post('halaman_isi');
 			$halaman=$this->m_halaman->get(0);
@@ -247,7 +369,11 @@ class Welcome extends CI_Controller
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
 		
+<<<<<<< HEAD
 	if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+	if ($data['username']!='admin') {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			redirect('/auth/login/');
 		} else {
 			$isi=$this->input->post('halaman_isi');
@@ -264,12 +390,20 @@ class Welcome extends CI_Controller
 	function edit(){
 			$this->load->model('m_halaman');
 			$this->load->model('m_calon');
+<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
+=======
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 	
+<<<<<<< HEAD
 		if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+		if ($data['username']!='admin') {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			redirect('/auth/login/');
 		} else {
 			$halaman=$this->m_halaman->get(0);

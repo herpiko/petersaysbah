@@ -6,6 +6,7 @@ class M_calon extends CI_Model{
 	}
 
 
+<<<<<<< HEAD
 	function submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_av,$nilai_sc_1,$nilai_sc_2,$nilai_sc_3,$nilai_sc_4,$nilai_sc_5,$nilai_sc_av){
 
 		$db=$this->load->database('default',TRUE);	
@@ -36,10 +37,29 @@ class M_calon extends CI_Model{
 			'$pekerjaan_ibu',
 			'$alamat_ortu',
 			'$notelp',
+=======
+	function submit($email,$passwd,$nama,$tempatlahir,$tanggallahir,$kelamin,$alamat,$notelp,$nohp,$asal,$nilai,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e){
+
+		$db=$this->load->database('default',TRUE);	
+		$query="INSERT INTO calon (calon_email,calon_passwd,calon_nama,calon_tempatlahir,calon_tanggallahir,calon_kelamin,calon_alamat,calon_notelp,calon_nohp,calon_asal,calon_nilai,calon_nilai_a,calon_nilai_b,calon_nilai_c,calon_nilai_d,calon_nilai_e
+			) values (
+			'$email',
+			'$passwd',
+			'$nama',
+			'$tempatlahir',
+			'$tanggallahir',
+			'$kelamin',
+			'$alamat',
+			'$notelp',
+			'$nohp',
+			'$asal',
+			'$nilai',
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			'$nilai_a',
 			'$nilai_b',
 			'$nilai_c',
 			'$nilai_d',
+<<<<<<< HEAD
 			'$nilai_e',
 			'$nilai_f',
 			'$nilai_g',
@@ -67,12 +87,18 @@ class M_calon extends CI_Model{
 			'$nilai_sc_4',
 			'$nilai_sc_5',
 			'$nilai_sc_av'
+=======
+			'$nilai_e'
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			)";
 		$db->query($query);
 		
 		}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	function set_username($username,$email){
 
 		$db=$this->load->database('default',TRUE);	
@@ -109,16 +135,25 @@ class M_calon extends CI_Model{
 		// print_r($nilai);
 		$jumlah=count($nilai);
 		$jumlah--;
+<<<<<<< HEAD
+=======
+		//print_r($dayatampung);
+		
+
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		if ($jumlah<$dayatampung) {
 			$standar_nilai=$nilai[$jumlah];
 		} else {
 			$standar_nilai=$nilai[$dayatampung];
 		}
+<<<<<<< HEAD
 
 		//print_r($dayatampung);
 		
 
 		
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		return $standar_nilai;
 	}
 
@@ -128,6 +163,7 @@ class M_calon extends CI_Model{
 		$db->query($query);
 	}
 
+<<<<<<< HEAD
 	function peringkat_status($id,$num=NULL,$offset=NULL){
 		$db=$this->load->database('default',TRUE);
 		$query="SELECT * FROM tetapan";
@@ -170,6 +206,13 @@ class M_calon extends CI_Model{
 		$db->order_by('calon_nilai_g', 'desc');
 
 		$peringkatquery=$db->get('calon',$limit, $offset);
+=======
+	function peringkat($num=NULL,$offset=NULL){
+		$db=$this->load->database('default',TRUE);	
+		$db->select('calon_id,calon_email,calon_nama,calon_nilai,calon_nilai_e,calon_asal');
+		$db->order_by('calon_nilai', 'desc');
+		$peringkatquery=$db->get('calon', $num, $offset);
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		$peringkatarray=array();
 		$x=0;
 		foreach ($peringkatquery->result_array() as $key) {
@@ -178,6 +221,7 @@ class M_calon extends CI_Model{
 		}
 		return $peringkatarray;
 
+<<<<<<< HEAD
 	}
 
 
@@ -232,6 +276,9 @@ class M_calon extends CI_Model{
 			$x=$x+1;
 		}
 		return $peringkatarray;
+=======
+		
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 	}
 
@@ -268,11 +315,18 @@ class M_calon extends CI_Model{
 		$calon_email=$db->query($query1);
 		$calon_email=$calon_email->result_array();
 		$calon_email=$calon_email[0]['calon_email'];
+<<<<<<< HEAD
 		$query2="UPDATE calon SET calon_status='dis' WHERE calon_id='$id'";
 		$db->query($query2);
 		$query3="DELETE FROM users WHERE email='$calon_email'	";
 		$db->query($query3);
 		
+=======
+		$query2="DELETE FROM calon WHERE calon_id='$id'";
+		$db->query($query2);
+		$query2="DELETE FROM users WHERE email='$calon_email'	";
+		$db->query($query2);
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 	}
 
@@ -297,6 +351,7 @@ class M_calon extends CI_Model{
 		
 		return $result;
 	}
+<<<<<<< HEAD
 	
 	function edit_simpan($id,$nama,$tempatlahir,$tanggallahir,$kelamin,$alamat,$notelp,$panggilan,$agama,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu) {
 		$db=$this->load->database('default', TRUE);
@@ -322,6 +377,9 @@ class M_calon extends CI_Model{
 		WHERE calon_id='$id'";
 		$db->query($query);
 	}	
+=======
+		
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	function verifikasi_nilai($id){
 		$db=$this->load->database('default',TRUE);
 		$query="SELECT calon_status FROM calon WHERE calon_id='$id'";
@@ -330,13 +388,17 @@ class M_calon extends CI_Model{
 		$result=$result[0]['calon_status'];
 		return $result;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	
 	function verifikasi_nilai_set($id,$status){
 		$db=$this->load->database('default',TRUE);
 		$query="UPDATE calon SET calon_status='$status' WHERE calon_id='$id'";
 		$db->query($query);
 	}
+<<<<<<< HEAD
 	function alasandis_set($id,$pesan){
 		$db=$this->load->database('default',TRUE);
 		$query="UPDATE calon SET calon_alasandis='$pesan' WHERE calon_id='$id'";
@@ -379,5 +441,8 @@ class M_calon extends CI_Model{
 		$result=$result[0]['calon_email'];
 		return $result;
 	}
+=======
+
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 	}

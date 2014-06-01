@@ -50,11 +50,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-<<<<<<< HEAD
 $db['default']['password'] = '1';
-=======
-$db['default']['password'] = 'pass';
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 $db['default']['database'] = 'psb';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
@@ -70,8 +66,4 @@ $db['default']['stricton'] = FALSE;
 
 
 /* End of file database.php */
-<<<<<<< HEAD
 /* Location: ./application/config/database.php */
-=======
-/* Location: ./application/config/database.php */
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0

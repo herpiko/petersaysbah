@@ -22,7 +22,11 @@ class Reg_verifikasi extends CI_Controller
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
 			$this->load->model('m_calon');
+<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
+=======
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$this->load->view('header', $data);
 			$this->load->view('v_reg_verifikasi', $data);
 			$this->load->view('sidebar');

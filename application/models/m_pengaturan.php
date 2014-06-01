@@ -27,6 +27,9 @@ class M_pengaturan extends CI_Model{
 	}
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	}

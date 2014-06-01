@@ -13,7 +13,11 @@ class Export{
 
         // Filter all keys, they'll be table headers
         $h = array();
+<<<<<<< HEAD
         foreach($array as $row){
+=======
+        foreach($array->result_array() as $row){
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
             foreach($row as $key=>$val){
                 if(!in_array($key, $h)){
                  $h[] = $key;   
@@ -31,6 +35,7 @@ class Export{
                     echo '<th>Email</th>';
                     echo '<th></th>';
                     echo '<th>Nama</th>';
+<<<<<<< HEAD
                     echo '<th>Nama Panggilan</th>';
                     echo '<th>Jenis Kelamin</th>';
                     echo '<th>Tempat lahir</th>';
@@ -62,6 +67,27 @@ class Export{
                 echo '</tr>';
                 
                 foreach($array as $row){
+=======
+                    echo '<th>Tempat lahir</th>';
+                    echo '<th>Tanggal lahir</th>';
+                    echo '<th>Jenis Kelamin</th>';
+                    echo '<th>Alamat</th>';
+                    echo '<th>No Telp</th>';
+                    echo '<th>No HP</th>';
+                    echo '<th>Asal sekolah</th>';
+                    echo '<th>Nilai total</th>';
+                    echo '<th>Nilai BI</th>';
+                    echo '<th>Nilai EN</th>';
+                    echo '<th>Nilai MTK</th>';
+                    echo '<th>Nilai IPA</th>';
+                    echo '<th>Nilai Rata-rata</th>';
+                    echo '<th></th>';
+                    echo '<th>Status</th>';
+                    
+                echo '</tr>';
+                
+                foreach($array->result_array() as $row){
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
                      echo '<tr>';
                     foreach($row as $val)
                          $this->writeRow($val);   

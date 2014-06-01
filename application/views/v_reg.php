@@ -13,6 +13,7 @@
                 });
 	    </script>
 
+<<<<<<< HEAD
 <style media="screen" type="text/css">
 
 	#sekolahlain{display:none;}
@@ -22,6 +23,11 @@
 				<div class="col-md-8 column">
 					<h3>Formulir Pendaftaran</h3>
 					
+=======
+<div class="row clearfix">
+				<div class="col-md-8 column">
+					<h3>Formulir Pendaftaran</h3>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <div class="alert alert-warning">Data akun akan digunakan untuk login ke portal. Pastikan anda mengisi data di bawah ini dengan benar. </div>
 <?php
 if ($use_username) {
@@ -40,7 +46,10 @@ $email = array(
 	'maxlength'	=> 80,
 	'size'	=> 50,
 	'class' => 'form-control',
+<<<<<<< HEAD
 	'data-validation' => 'required email'
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 );
 $password = array(
 	'name'	=> 'password',
@@ -49,8 +58,11 @@ $password = array(
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
 	'class' => 'form-control',
+<<<<<<< HEAD
 	'data-validation' => 'required length',
 	'data-validation-length' => 'min8'
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 );
 $confirm_password = array(
 	'name'	=> 'confirm_password',
@@ -59,20 +71,29 @@ $confirm_password = array(
 	'maxlength'	=> $this->config->item('password_max_length', 'tank_auth'),
 	'size'	=> 30,
 	'class' => 'form-control',
+<<<<<<< HEAD
 	'data-validation' => 'required length',
 	'data-validation' => 'confirmation'
 	
 
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 );
 $captcha = array(
 	'name'	=> 'captcha',
 	'id'	=> 'captcha',
 	'maxlength'	=> 8,
 	'class' => 'form-control',
+<<<<<<< HEAD
 	
 );
 ?>
 <?php echo form_open_multipart($this->uri->uri_string(),'onsubmit="return validation(this)"'); ?>
+=======
+);
+?>
+<?php echo form_open($this->uri->uri_string()); ?>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <table>
 	<tr><td><strong>Data akun</strong></td></tr>
 	<?php if ($use_username) { ?>
@@ -98,6 +119,47 @@ $captcha = array(
 		<td style="color: red;"><?php echo form_error($confirm_password['name']); ?></td>
 	</tr>
 
+<<<<<<< HEAD
+=======
+	<?php if ($captcha_registration) {
+		if ($use_recaptcha) { ?>
+	<tr>
+		<td colspan="2">
+			<div id="recaptcha_image"></div>
+		</td>
+		<td>
+			<a href="javascript:Recaptcha.reload()">Get another CAPTCHA</a>
+			<div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a></div>
+			<div class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">Get an image CAPTCHA</a></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="recaptcha_only_if_image">Enter the words above</div>
+			<div class="recaptcha_only_if_audio">Enter the numbers you hear</div>
+		</td>
+		<td><input type="text" id="recaptcha_response_field" name="recaptcha_response_field" /></td>
+		<td style="color: red;"><?php echo form_error('recaptcha_response_field'); ?></td>
+		<?php echo $recaptcha_html; ?>
+	</tr>
+	<?php } else { ?>
+	<tr>
+		<td>
+		</td>
+		<td>
+			
+			<br><?php echo $captcha_html; ?>
+			<p>Ketik kode captcha di atas ini.</p>
+		</td>
+	</tr>
+	<tr>
+		<td>Captcha</td>
+		<td><?php echo form_input($captcha); ?></td>
+		<td style="color: red;"><?php echo form_error($captcha['name']); ?></td>
+	</tr>
+	<?php }
+	} ?>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	<tr><td>
 				<br>	
 			<strong>Data Pribadi</strong>
@@ -108,6 +170,7 @@ $captcha = array(
 				<td><input class="form-control" name="nama" data-validation="required" type="text"></td>	
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<td>Nama Panggilan</td>
 				<td><input class="form-control" name="panggilan" data-validation="required" type="text"></td>	
 			</tr>
@@ -121,6 +184,8 @@ $captcha = array(
 				</td>	
 			</tr>
 			<tr>
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 				<td>Tempat Lahir</td>
 				<td><input class="form-control" name="tempatlahir" data-validation="required" type="text"></td>	
 			</tr>
@@ -134,15 +199,29 @@ $captcha = array(
 				</td>
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<td>Agama</td>
 				<td><input class="form-control" name="agama" data-validation="required" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Alamat Siswa</td>
+=======
+				<td>Jenis Kelamin</td>
+				<td><select class="form-control" name="kelamin" data-validation="required" type="text">
+				<option>---</option>
+				<option>Laki-laki</option>
+				<option>Perempuan</option>
+				</select>
+				</td>	
+			</tr>
+			<tr>
+				<td>Alamat</td>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 				<td><textarea row="2" class="form-control" name="alamat" data-validation="required" type="text"></textarea>
 				</td>
 			</tr>
 			<tr>
+<<<<<<< HEAD
 				<td>Asal Sekolah</td>
 				<td>
 				<p> 
@@ -311,6 +390,37 @@ function validateFileSize(component,maxSize,msg_id,msg)
 			<tr><td><strong>Nilai Ujian Nasional</strong></td></tr>
 			<tr><!-- 
 				<td>Nilai rata-rata</td>
+=======
+				<td>Nomor Telepon</td>
+				<td><input class="form-control" name="notelp" data-validation="" type="text"></td>	
+			</tr>
+			<tr>
+				<td>Nomor Ponsel</td>
+				<td><input class="form-control" name="nohp" data-validation="required number" type="text"></td>	
+			</tr>
+			<tr>
+				<td>SMP Asal</td>
+				<td><input class="form-control" name="asal" data-validation="required" type="text"></td>	
+			</tr>
+
+			<tr>
+				<td><br>
+					<strong>Nilai Ujian</strong>
+
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				</td>
+				<td>
+					<div class="alert alert-warning">Desimal dapat dilambangkan dengan titik (.),<br> misal : 7.5</div>
+				</td>
+			</tr>
+			<!-- <tr>
+				<td>Total Nilai Ujian Nasional</td>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 				<td><input class="form-control" name="nilai" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;40]" type="text"></td>	
 			</tr> -->
 			<tr>
@@ -329,6 +439,7 @@ function validateFileSize(component,maxSize,msg_id,msg)
 				<td>Nilai IPA</td>
 				<td><input class="form-control" name="nilai_d" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
 			</tr>
+<<<<<<< HEAD
 			<tr>
 			<tr><td><br></td></tr>
 			
@@ -396,6 +507,13 @@ function validateFileSize(component,maxSize,msg_id,msg)
 				</td>	
 			</tr>	
 			<!-- <tr>
+=======
+			<!-- <tr>
+				<td>Nilai E</td>
+				<td><input class="form-control" name="nilai_e" data-validation="required number" type="text"></td>	
+			</tr>	
+			<tr>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 				<td>Nilai F</td>
 				<td><input class="form-control" name="nilai_f" data-validation="required number" type="text"></td>	
 			</tr> -->
@@ -412,6 +530,7 @@ function validateFileSize(component,maxSize,msg_id,msg)
 				</div>
 				</td>
 			</tr> -->
+<<<<<<< HEAD
 			<tr>
 				<td><br>
 					<strong>Keterangan Orang Tua / Wali</strong>
@@ -537,6 +656,12 @@ Saya menyatakan bahwa informasi yang saya tulis dan unggah di atas adalah benar 
 </td>
 </tr></table>
 </div>
+=======
+</table>
+<br>
+<p class="alert alert-info">
+Saya menyatakan bahwa informasi yang saya tulis dan unggah di atas adalah benar dan saya bersedia mengikuti aturan yang berlaku dalam penyelenggaraan PSB ini, termasuk didiskualifikasi jika data yang saya tulis tidak benar.</p>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <table>
 <tr><td width="200"></td><td><input type="submit" name="register" value="Daftar" class="btn btn-primary" style="width:400px	"></td></tr>
 </table>
@@ -550,7 +675,11 @@ Saya menyatakan bahwa informasi yang saya tulis dan unggah di atas adalah benar 
  
 <script>
   $.validate({
+<<<<<<< HEAD
     modules : 'security','date','file'
+=======
+    modules : 'security','date'
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
   });
 </script>
 
@@ -560,7 +689,10 @@ Saya menyatakan bahwa informasi yang saya tulis dan unggah di atas adalah benar 
       requiredFields : 'Tidak boleh kosong',
       badInt : 'Format angka belum benar.',
       lengthTooShortStart : 'Minimal ',
+<<<<<<< HEAD
       lengthTooLongStart : 'Maksimal ',
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
       };
 
   $.validate({

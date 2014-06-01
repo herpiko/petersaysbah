@@ -30,7 +30,11 @@ class Peringkat extends CI_Controller
 		//generate pagination 
 		$this->load->library('pagination');
 		$config['base_url']=$this->config->base_url().'peringkat/index';
+<<<<<<< HEAD
 		$config['per_page']=9000;
+=======
+		$config['per_page']=500;
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		$config['total_rows']=$this->m_calon->get_total();
 		$this->pagination->initialize($config);
 		$data['pagination']=$this->pagination->create_links();
@@ -48,7 +52,10 @@ class Peringkat extends CI_Controller
 		
 
 		//hitung jumlah sms
+<<<<<<< HEAD
 		$limit=1;
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		$count=$this->m_calon->peringkat();
 		$data['count']=count($count);
 
@@ -58,7 +65,10 @@ class Peringkat extends CI_Controller
 		// jika admin
 		$x=0;
 		foreach ($query as $row) {
+<<<<<<< HEAD
 			// $checkbox="<input type=\"checkbox\" name=\"bulkaction\" value=\"".$row['calon_id']."\">";
+=======
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$peringkat=$x+1;
 			$hapus='';
 
@@ -78,6 +88,7 @@ class Peringkat extends CI_Controller
 				$v_nilai="<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
 			}
 
+<<<<<<< HEAD
 	// 		$diskualifikasi="
  // <a id=\"modal-".$row['calon_id']."\" href=\"#modal-container-".$row['calon_id']."\" data-toggle=\"modal\"><img src=\"".$this->config->base_url()."assets/img/rm.png\" width=\"20px\"></a>		
 	// 		<div class=\"modal fade\" id=\"modal-container-".$row['calon_id']."\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
@@ -120,6 +131,46 @@ class Peringkat extends CI_Controller
 			$v_email,
 			$v_nilai
 			// $diskualifikasi
+=======
+			$diskualifikasi="
+ <a id=\"modal-".$row['calon_id']."\" href=\"#modal-container-".$row['calon_id']."\" data-toggle=\"modal\"><img src=\"".$this->config->base_url()."assets/img/rm.png\" width=\"20px\"></a>		
+			<div class=\"modal fade\" id=\"modal-container-".$row['calon_id']."\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+				<div class=\"modal-dialog\">
+					<div class=\"modal-content\">
+						<div class=\"modal-header\">
+							 <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>
+							<h4 class=\"modal-title\" id=\"myModalLabel\">
+								Diskualifikasi
+							</h4>
+						</div>
+						<div class=\"modal-body\">
+						No. Registrasi : ".$row['calon_id']."
+						<br>Nama : ".$row['calon_nama']."
+						<br>Email : ".$row['calon_email']."
+							<br><br><form method=\"POST\" name=\"form-".$row['calon_id']."\" action=\"".$this->config->base_url()."peringkat/delete/".$row['calon_id']."\" \">
+								<textarea style=\"width:540px;height:150px\" name=\"pesan\" placeholder=\"Tuliskan pesan email mengenai alasan diskualifikasi\"></textarea>
+						</div>
+						<div class=\"modal-footer\">
+							<input type=\"hidden\" name=\"email\" value=\"".$row['calon_email']."\">
+							 <input type=\"button\" class=\"btn btn-default\" value=\"Batal\" data-dismiss=\"modal\">  <input class=\"btn btn-danger\" type=\"submit\" name=\"submit\" value=\"Diskualifikasi dan kirim email pemberitahuan\">
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>";
+
+			$this->table->add_row(
+			$peringkat,
+			$row['calon_id'],
+			$row['calon_nama'],
+			$row['calon_nilai'],
+			$row['calon_nilai_e'],
+			$row['calon_asal'],
+			$v_email,
+			$v_nilai,
+			$diskualifikasi
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			
 				);
 			$x=$x+1;
@@ -132,7 +183,14 @@ class Peringkat extends CI_Controller
 			
 			$this->table->add_row(
 			$peringkat,
+<<<<<<< HEAD
 			$row['calon_nama'],
+=======
+			$row['calon_id'],
+			$row['calon_nama'],
+			$row['calon_nilai'],
+			$row['calon_nilai_e'],
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$row['calon_asal']			
 				);
 			$x=$x+1;
@@ -143,6 +201,7 @@ class Peringkat extends CI_Controller
 		$tmpl = array ( 'table_open'  => '<table class="table table-hover table-striped">','table_close'  => '</table>'  );
 		$this->table->set_template($tmpl); 
 		if ($data['username']=="admin") {
+<<<<<<< HEAD
 			$this->table->set_heading('','Peringkat','No. Registrasi','Nama','Skor nilai','Sekolah asal','Verifikasi email','Valid');
 		} else {
 			$this->table->set_heading('Peringkat','Nama','Sekolah Asal');	
@@ -288,6 +347,15 @@ function out()
 		$data['table']=$this->table->generate();
 		$this->load->model('m_calon');
 			$data['standar_nilai']="6.0";
+=======
+			$this->table->set_heading('Peringkat','No. Registrasi','Nama','Nilai','Nilai Rata-rata','Sekolah Asal','Verifikasi email','Validasi');
+		} else {
+			$this->table->set_heading('Peringkat','No. Registrasi','Nama','Nilai','Nilai Rata-rata','Sekolah Asal');	
+		}
+		$data['table']=$this->table->generate();
+		$this->load->model('m_calon');
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 			$this->load->view('header', $data);
 			$this->load->view('v_peringkat', $data);
@@ -299,6 +367,7 @@ function out()
 		// }
 	}
 
+<<<<<<< HEAD
 function daftardis()
 	{
 		// if (!$this->tank_auth->is_logged_in()) {
@@ -442,6 +511,12 @@ function daftardis()
 	{
 			$this->load->model('m_calon');
 			$data['title']="Peringkat";
+=======
+	function delete($id)
+	{
+
+				$data['title']="Peringkat";
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
@@ -451,6 +526,7 @@ function daftardis()
 		 	redirect('/auth/login/');
 		} else {
 
+<<<<<<< HEAD
 		if ($this->m_calon->get_level($data['user_id'])!='admin') {
 		 	redirect('/auth/login/');
 		} else {
@@ -461,6 +537,14 @@ function daftardis()
 			$this->m_calon->alasandis_set($id,$pesan);
 
 			$pesan="Mohon maaf, anda didiskualifikasi karena : ".$pesan;
+=======
+		if (!$data['username']=="admin") {
+		 	redirect('/auth/login/');
+		} else {
+
+			$email=$this->input->post('email');
+			$pesan=$this->input->post('pesan');
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
      
 
         $this->load->helper('url_helper');
@@ -485,6 +569,7 @@ function daftardis()
 
 
 
+<<<<<<< HEAD
 		$this->m_calon->delete($id);
 		
 		}
@@ -511,6 +596,11 @@ function daftardis()
 
 		$this->load->model('m_calon');
 		$this->m_calon->verifikasi_nilai_set($id,"1");
+=======
+		$this->load->model('m_calon');
+		$this->m_calon->delete($id);
+		$this->index();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		}}
 	}
 
@@ -526,8 +616,13 @@ function daftardis()
 		if (!$this->tank_auth->is_logged_in()) {
 		 	redirect('/auth/login/');
 		} else {
+<<<<<<< HEAD
 		
 		if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+
+		if (!$data['username']=="admin") {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		 	redirect('/auth/login/');
 		} else {
 
@@ -551,7 +646,11 @@ function daftardis()
 		 	redirect('/auth/login/');
 		} else {
 
+<<<<<<< HEAD
 		if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+		if (!$data['username']=="admin") {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		 	redirect('/auth/login/');
 		} else {
 
@@ -574,7 +673,11 @@ function daftardis()
 		 	redirect('/auth/login/');
 		} else {
 
+<<<<<<< HEAD
 		if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+		if (!$data['username']=="admin") {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		 	redirect('/auth/login/');
 		} else {
 
@@ -585,6 +688,7 @@ function daftardis()
 		$data['calon_id']=$profil[0]['calon_id'];
 		$data['calon_email']=$profil[0]['calon_email'];
 		$data['calon_nama']=$profil[0]['calon_nama'];
+<<<<<<< HEAD
 		$data['calon_kelamin']=$profil[0]['calon_kelamin'];
 		$data['calon_panggilan']=$profil[0]['calon_panggilan'];
 		$data['calon_tempatlahir']=$profil[0]['calon_tempatlahir'];
@@ -603,15 +707,29 @@ function daftardis()
 		$data['calon_pekerjaan_ibu']=$profil[0]['calon_pekerjaan_ibu'];
 		$data['calon_alamat_ortu']=$profil[0]['calon_alamat_ortu'];
 		$data['calon_notelp']=$profil[0]['calon_notelp'];
+=======
+		$data['calon_tempatlahir']=$profil[0]['calon_tempatlahir'];
+		$data['calon_tanggallahir']=$profil[0]['calon_tanggallahir'];
+		$data['calon_kelamin']=$profil[0]['calon_kelamin'];
+		$data['calon_alamat']=$profil[0]['calon_alamat'];
+		$data['calon_notelp']=$profil[0]['calon_notelp'];
+		$data['calon_nohp']=$profil[0]['calon_nohp'];
+		$data['calon_asal']=$profil[0]['calon_asal'];
+		$data['calon_nilai']=$profil[0]['calon_nilai'];
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 		$data['calon_nilai_a']=$profil[0]['calon_nilai_a'];
 		$data['calon_nilai_b']=$profil[0]['calon_nilai_b'];
 		$data['calon_nilai_c']=$profil[0]['calon_nilai_c'];
 		$data['calon_nilai_d']=$profil[0]['calon_nilai_d'];
 		$data['calon_nilai_e']=$profil[0]['calon_nilai_e'];
 		$data['calon_nilai_f']=$profil[0]['calon_nilai_f'];
+<<<<<<< HEAD
 		$data['calon_nilai_g']=$profil[0]['calon_nilai_g'];
 		$data['calon_status']=$profil[0]['calon_status'];
 		$data['calon_selfie']=$profil[0]['calon_selfie'];
+=======
+		$data['calon_status']=$profil[0]['calon_status'];
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 
 		$this->load->view('header', $data);
@@ -624,6 +742,7 @@ function daftardis()
 
 
 	}
+<<<<<<< HEAD
 function profil_dis($id){
 
 		$data['title']="Profil";
@@ -687,6 +806,9 @@ function profil_dis($id){
 
 
 	}
+=======
+
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 
 }
 

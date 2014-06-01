@@ -35,7 +35,11 @@ class CI_Email {
 	var	$smtp_user		= "";		// SMTP Username
 	var	$smtp_pass		= "";		// SMTP Password
 	var	$smtp_port		= "25";		// SMTP Port
+<<<<<<< HEAD
 	var	$smtp_timeout	= 10;		// SMTP Timeout in seconds
+=======
+	var	$smtp_timeout	= 5;		// SMTP Timeout in seconds
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 	var	$smtp_crypto	= "";		// SMTP Encryption. Can be null, tls or ssl.
 	var	$wordwrap		= TRUE;		// TRUE/FALSE  Turns word-wrap on/off
 	var	$wrapchars		= "76";		// Number of characters to wrap at.

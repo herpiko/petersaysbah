@@ -21,6 +21,7 @@
 
 <div class="row clearfix">
 				<div class="col-md-8 column">
+<<<<<<< HEAD
  	
 		<h3>Pengaturan</h3>	
 		<?php
@@ -30,6 +31,10 @@
 </div>";
 		}
 		 ?>
+=======
+					
+		<h3>Pengaturan</h3>	
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 <form name="submit" role="form" method="POST" action="pengaturan/simpan" class="well">
 		<table>
 			<tr>

@@ -40,7 +40,11 @@ $config['phpass_hash_strength'] = 8;
 |--------------------------------------------------------------------------
 */
 $config['allow_registration'] = TRUE;
+<<<<<<< HEAD
 $config['captcha_registration'] = FALSE;
+=======
+$config['captcha_registration'] = TRUE;
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 $config['email_activation'] = TRUE;
 $config['email_activation_expire'] = 60*60*24*2;
 $config['email_account_details'] = TRUE;

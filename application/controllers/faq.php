@@ -103,7 +103,11 @@ class Faq extends CI_Controller
 		
 			$this->load->model('m_halaman');
 			$this->load->model('m_calon');
+<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
+=======
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$isi=$this->input->post('halaman_isi');
 			$halaman=$this->m_halaman->get(4);
 			$data['halaman_isi']=$halaman['halaman_isi'];
@@ -126,13 +130,21 @@ class Faq extends CI_Controller
 
 			$this->load->model('m_halaman');
 			$this->load->model('m_calon');
+<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
+=======
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
 		
+<<<<<<< HEAD
 	if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+	if ($data['username']!='admin') {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			redirect('/auth/login/');
 		} else {
 			$isi=$this->input->post('halaman_isi');
@@ -149,13 +161,21 @@ class Faq extends CI_Controller
 	function edit(){
 			$this->load->model('m_halaman');
 			$this->load->model('m_calon');
+<<<<<<< HEAD
 			$data['standar_nilai']="6.0";
+=======
+			$data['standar_nilai']=$this->m_calon->standar_nilai();
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 	
+<<<<<<< HEAD
 		if ($this->m_calon->get_level($data['user_id'])!='admin') {
+=======
+		if ($data['username']!='admin') {
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 			redirect('/auth/login/');
 		} else {
 			$halaman=$this->m_halaman->get(4);

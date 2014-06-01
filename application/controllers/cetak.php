@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Statistik extends CI_Controller
+class Cetak extends CI_Controller
 {
 	function __construct()
 	{
@@ -16,28 +16,22 @@ class Statistik extends CI_Controller
 		// 	redirect('/auth/login/');
 		// } else {
 			$this->load->model('m_calon');
-			
-<<<<<<< HEAD
-			$data['standar_nilai']="6.0";
-=======
+			$this->load->model('m_calon');
 			$data['standar_nilai']=$this->m_calon->standar_nilai();
->>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
-			
-			$data['title']="Statistik";
+
+			$data['title']="Lembar Registrasi";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
 			$data['base_url']=$this->config->base_url();
-			$this->load->view('header', $data);
-			$this->load->view('v_statistik', $data);
-			$this->load->view('sidebar');
-			$this->load->view('footer');
-
-			$x=$this->m_calon->get_all();
-			print_r($x);
+			// $this->load->view('header', $data);
+			$this->load->view('v_cetak', $data);
+			// $this->load->view('sidebar');
+			// $this->load->view('footer');
 
 
 		// }
+  
 	}
 }
 

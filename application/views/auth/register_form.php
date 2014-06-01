@@ -140,9 +140,15 @@ $captcha = array(
 			<tr>
 				<td>Jenis Kelamin</td>
 				<td><select class="form-control" name="kelamin" data-validation="required" type="text">
+<<<<<<< HEAD
 				<option disabled>---</option>
 				<option disabled>Laki-laki</option>
 				<option disabled>Perempuan</option>
+=======
+				<option>---</option>
+				<option>Laki-laki</option>
+				<option>Perempuan</option>
+>>>>>>> 4bbeca48094b277d496aba35fa0fb942585b03e0
 				</select>
 				</td>	
 			</tr>
