@@ -260,6 +260,80 @@ class M_calon extends CI_Model{
 		// }
 		return $data;
 	}
+	 				// echo '<th>No. Registrasi</th>';
+      //               echo '<th>Waktu pendaftaran</th>';
+      //               echo '<th>Email</th>';
+      //               echo '<th></th>';
+      //               echo '<th>Nama</th>';
+      //               echo '<th>Nama Panggilan</th>';
+      //               echo '<th>Jenis Kelamin</th>';
+      //               echo '<th>Tempat lahir</th>';
+      //               echo '<th>Tanggal lahir</th>';
+      //               echo '<th>Agama</th>';
+      //               echo '<th>Alamat</th>';
+      //               echo '<th>Asal sekolah</th>';
+      //               echo '<th>NIS</th>';
+      //               echo '<th>Nama Ayah</th>';
+      //               echo '<th>Nama Ibu</th>';
+      //               echo '<th>Pendidikan Ayah</th>';
+      //               echo '<th>Pendidikan Ibu</th>';
+      //               echo '<th>Pekerjaan Ayah</th>';
+      //               echo '<th>Pekerjaan Ibu</th>';
+      //               echo '<th>Alamat Ortu</th>';
+      //               echo '<th>No Telp</th>';
+      //               echo '<th>Nilai BI</th>';
+      //               echo '<th>Nilai MTK</th>';
+      //               echo '<th>Nilai EN</th>';
+      //               echo '<th>Nilai IPA</th>';
+      //               echo '<th>Nilai Avg UN</th>';
+      //               echo '<th>Nilai Avg Raport</th>';
+      //               echo '<th>Skor</th>';
+      //               echo '<th>Status</th>';
+      //               echo '<th>Alasan Diskualifikasi</th>';
+
+	function get_excel(){
+		$db=$this->load->database('default',TRUE);	
+		$query="SELECT 
+			calon_id,
+			calon_waktu,
+			calon_email,
+			calon_passwd,
+			calon_nama,
+			calon_panggilan,
+			calon_kelamin,
+			calon_tempatlahir,
+			calon_tanggallahir,
+			calon_agama,
+			calon_alamat,
+			calon_asal,
+			calon_nis,
+			calon_nama_ayah,
+			calon_nama_ibu,
+			calon_pendidikan_ayah,
+			calon_pendidikan_ibu,
+			calon_pekerjaan_ayah,
+			calon_pekerjaan_ibu,
+			calon_alamat_ortu,
+			calon_notelp,
+			calon_nilai_a,
+			calon_nilai_b,
+			calon_nilai_c,
+			calon_nilai_d,
+			calon_nilai_f,
+			calon_nilai_e,		
+			calon_status,
+			calon_alasandis
+
+			FROM calon";
+		$data=$db->query($query);
+		// $data=array();
+		// $x=0;
+		// foreach ($result->result_array() as $key) {
+		// 	$data[$x]=$key;
+		// 	$x=$x+1;
+		// }
+		return $data;
+	}
 
 	function get_total(){
 		$db=$this->load->database('default',TRUE);

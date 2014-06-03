@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 03, 2014 at 02:27 PM
+-- Generation Time: Jun 03, 2014 at 03:42 PM
 -- Server version: 5.5.37-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `calon` (
 --
 
 INSERT INTO `calon` (`calon_id`, `calon_waktu`, `calon_email`, `calon_passwd`, `calon_selfie`, `calon_nama`, `calon_panggilan`, `calon_kelamin`, `calon_tempatlahir`, `calon_tanggallahir`, `calon_agama`, `calon_alamat`, `calon_asal`, `calon_nis`, `calon_nama_ayah`, `calon_nama_ibu`, `calon_pendidikan_ayah`, `calon_pendidikan_ibu`, `calon_pekerjaan_ayah`, `calon_pekerjaan_ibu`, `calon_alamat_ortu`, `calon_notelp`, `calon_nilai_a`, `calon_nilai_b`, `calon_nilai_c`, `calon_nilai_d`, `calon_nilai_e`, `calon_nilai_f`, `calon_nilai_g`, `calon_nilai_bi_1`, `calon_nilai_bi_2`, `calon_nilai_bi_3`, `calon_nilai_bi_4`, `calon_nilai_bi_5`, `calon_nilai_bi_6`, `calon_nilai_bi_av`, `calon_nilai_ma_1`, `calon_nilai_ma_2`, `calon_nilai_ma_3`, `calon_nilai_ma_4`, `calon_nilai_ma_5`, `calon_nilai_ma_6`, `calon_nilai_ma_av`, `calon_nilai_en_1`, `calon_nilai_en_2`, `calon_nilai_en_3`, `calon_nilai_en_4`, `calon_nilai_en_5`, `calon_nilai_en_6`, `calon_nilai_en_av`, `calon_nilai_bo_1`, `calon_nilai_bo_2`, `calon_nilai_bo_3`, `calon_nilai_bo_4`, `calon_nilai_bo_5`, `calon_nilai_bo_6`, `calon_nilai_bo_av`, `calon_nilai_fi_1`, `calon_nilai_fi_2`, `calon_nilai_fi_3`, `calon_nilai_fi_4`, `calon_nilai_fi_5`, `calon_nilai_fi_6`, `calon_nilai_fi_av`, `calon_status`, `calon_alasandis`) VALUES
-(42, '2014-06-03 14:23:05', 'herpiko@gmail.com', '', 'http://localhost/php/petersaysbah/uploads/selfie/42_282c8595203218f09741afbc637a5abb.jpg', 'Herpiko Dwi Aguno', 'Piko', 'Perempuan', 'Mataram', '01-05-1992', 'Islam', 'Mataram', 'SMP Negeri 2 Pajo', '123123', '-', '-', 'SMA', 'Sarjana', '-', '-', '-', '-', 9, 9, 9, 9, 6, 9, 14.4, 8, 8, 8, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, '', '');
+(42, '2014-06-03 14:43:57', 'herpiko@gmail.com', '', 'http://localhost/php/petersaysbah/uploads/selfie/42_282c8595203218f09741afbc637a5abb.jpg', 'Herpiko Dwi Aguno', 'Piko', 'Perempuan', 'Mataram', '01-05-1992', 'Islam', 'Mataram', 'SMP Negeri 2 Pajo', '123123', '-', '-', 'SMA', 'Sarjana', '-', '-', '-', '-', 9, 9, 9, 9, 6, 9, 14.4, 8, 8, 8, 8, 8, 8, 8, 7, 7, 7, 7, 7, 7, 7, 6, 6, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 'dis', 'bah');
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `halaman` (
 
 INSERT INTO `halaman` (`halaman_id`, `halaman_judul`, `halaman_isi`) VALUES
 (0, 'welcome', '<p>Selamat datang di portal di Penerimaan Peserta Didik Baru - SMA Negeri 1 Dompu.</p><p>Sebagai upaya untuk melaksanakan kegiatan pendidikan yang berkualitas, maka suatu hal yang mutlak dilakukan adalah seleksi awal calon-calon siswa baru. &nbsp;Kegiatan ini merupakan input yang menentukan keberhasilan pelaksanaan proses pendidikan yang menghasilkan out put dan outcome terhadap siswa-siswa yang akan melanjutkan studi ke perguruan tinggi.&nbsp;&nbsp;&nbsp;</p><p>&nbsp;</p><p><strong>Tujuan</strong></p><ol><li><p>Memberi kesempatan siswa-siswa terbaik lulusan SMP/MTs untuk belajar di SMA &nbsp;Negeri 1 Dompu melalui jalur &nbsp;seleksi</p></li><li><p>Siswa yang terpilih diharapkan mempunyai kemampuan akademik, kematangan pribadi dan keterampilan untuk menyelesaikan pendidikan di SMAN 1 Dompu sesuai dengan ketentuan yang berlaku.</p></li><li><p>Siswa &nbsp;yang terpilih mempunyai daya saing yang tinggi sehingga dapat melanjutkan ke perguruan tinggi &nbsp;favorit baik melalui SMNPTN &nbsp;ataupun SBMPTN.</p></li><li><p>Menciptakan SDM yang berkualitas tinggi.</p></li></ol><p>&nbsp;</p><p><strong>Daya Tampung</strong></p><p>Daya tampung Penerimaan Peserta Didik Baru tahun ajaran 2014/2015 adalah 120 orang.</p><p>Sebelum memulai silakan baca <strong>Alur</strong>,<strong> Jadwal</strong><strong> </strong>dan<strong> Persyaratan </strong>Pendaftaran.</p><p>&nbsp;</p>'),
-(1, 'alur', '<p>Langkah-langkah untuk menjadi peserta didik di SMAN 1 Negeri Dompu adalah sebagai berikut :</p><ol><li>Tes</li><li>Tes</li><li>Dst...</li></ol>'),
+(1, 'alur', '<p>&nbsp;</p>\n\n<p><img src="./assets/img/alur.png" /></p>\n'),
 (2, 'jadwal', '<p>Jadwal penyelenggaraan PPDB Online&nbsp; tahun ajaran 2014 / 2015 :</p><p><strong>Pendaftaran Online</strong></p><ul><li><p>Tanggal Pendaftaran Calon peserta PPDB On Line SMA Negeri 1 Dompu :</p><ul><li><p>23&nbsp; Juni 2014 pukul. 07.00&nbsp;s/d&nbsp;25 Juni 2014 pukul .12.00</p></li></ul></li><li><p>Pelamar yang lulus &nbsp;melalui PPDB Online akan diumumkan melalui website SMA Negeri 1 Dompu <a href="http://sman1dompu.sch.id">http://sman1dompu.sch.id</a> pada &nbsp;tanggal &nbsp;:</p><ul><li><p>28 Juni 2014 pukul 12.00</p></li></ul></li><li><p>Pendaftaran Ulang Bagi peserta didik yang dinyatakan lulus seleksi tanggal :</p><ul><li><p>30 Juni s/d 2 Juli 2014</p></li></ul></li><li><p>Masa Oreantasi Peserta didik Baru dilaksanakan :</p><ul><li><p>dari tanggal 3 Juli s/d tanggal 5 Juli 2014</p></li></ul></li><li><p>Hari Pertama Masuk Sekolah :</p><ul><li><p>7 juli 2014</p></li></ul></li></ul>'),
 (3, 'dayatampung', '<p>Daya tampung peserta didik untuk tahun ajaran 2014 / 2015 adalah 140 orang</p>'),
 (4, 'faq', '<p>Bila informasi di halaman ini tidak mencukupi kebutuhan anda, silakan hubungi kami di nomor telepon 1234567890.</p><p>&nbsp;</p><p><strong><em>Tanya : Ini situs apa?</em></strong></p><p>Jawab : Ini portal PSB online milik Smansadom</p><p>&nbsp;</p><p><strong><em>Tanya : Biaya pendaftarannya berapa?</em></strong></p><p>Jawab : Gratis. Penyelenggaraan PSB ini tidak dipungut biaya.</p><p>&nbsp;</p><p><strong><em>Tanya : Saya tidak dapat login. Setiap klik Login, saya diarahkan ke halaman &quot;Kirim ulang email verifikasi...&quot;.</em></strong></p><p>Jawab : Mungkin anda belum verifikasi email. Silakan cek email anda untuk verifikasi. Jika ini masih terjadi setelah verifikasi, hapus cookies dan cache peramban web anda, kemudian coba lagi.</p><p>&nbsp;</p><p><strong><em>Tanya : Data yang saya masukkan ternyata ada kekeliruan.</em></strong></p><p>Jawab : Silakan login kemudian masuk ke halaman Profil. Anda dapat menyunting sebagian data anda. Sementara itu, anda tidak dapat menyunting data nilai dan asal sekolah kecuali anda membatalkan pendaftaran dan mencoba mendaftar kembali. Oleh sebab itu, periksalah formulir pendaftaran anda sebelum mengklik &quot;Daftar&quot;</p><p>&nbsp;</p><p><em><strong>Tanya : Pada halaman Peringkat, nama saya berada di daftar merah.</strong></em></p><p>Jawab : Nilai anda tidak mencukupi untuk seleksi penerimaan siswa baru, silakan mencoba mendaftar di sekolah lain. Mungkin sebelumnya anda berada di daftar urutan atas, tapi sampai tanggal penutupan pendaftaran, urutan daftar tersebut bersifat sementara dan relatif berubah. Silakan pantau halaman peringkat untuk melihat apakah anda masih dapat diterima atau tidak.</p><p>&nbsp;</p><p><em><strong>Tanya : Profil saya ditandai &quot;Belum divalidasi&quot;.</strong></em></p><p>Jawab : Anda belum menyerahkan berkas hardcopy ke pihak sekolah atau anda sudah menyerahkan tetapi belum diperiksa oleh pihak sekolah. Jika sudah divalidasi, profil anda akan ditandai &quot;Data valid&quot;</p><p>&nbsp;</p><p><em><strong>Tanya : Saya tidak dapat mengklik tombol &quot;Daftar&quot;. Sepertinya tidak merespon.</strong></em></p><p>Jawab : Mungkin ada form yang belum anda isi atau formatnya salah. Silakan cek kembali. Jika masih tidak bisa, coba untuk merefresh halaman/mengklik lagi menu Pendaftaran.</p>'),
@@ -155,7 +155,14 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(50) COLLATE utf8_bin NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(3, '127.0.0.1', 'herpiko@gmail.com', '2014-06-03 15:13:42');
 
 -- --------------------------------------------------------
 
@@ -250,8 +257,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `last_ip`, `last_login`, `created`, `modified`, `level`) VALUES
-(1, 'admin', '$2a$08$BuC7Kl8cFMc6FyQ7JmBCj.PHIsS/6GVSUs/ILraRSRrCcW/.iln8C', 'ppdb@sman1dompu.sch.id', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-06-03 22:22:50', '2014-03-31 10:46:51', '2014-06-03 14:22:50', 'admin'),
-(42, 'herpiko', '$2a$08$.pNzaAWGNj9nB3CMHfrmM..08q/1hX2DAUqsH6mgAlRIPZhaMNJwm', 'herpiko@gmail.com', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-06-03 22:23:28', '2014-06-03 22:23:05', '2014-06-03 14:23:28', 'calon');
+(1, 'admin', '$2a$08$BuC7Kl8cFMc6FyQ7JmBCj.PHIsS/6GVSUs/ILraRSRrCcW/.iln8C', 'ppdb@sman1dompu.sch.id', 1, 0, NULL, NULL, NULL, NULL, NULL, '127.0.0.1', '2014-06-03 23:36:05', '2014-03-31 10:46:51', '2014-06-03 15:36:05', 'admin');
 
 -- --------------------------------------------------------
 

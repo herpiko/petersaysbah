@@ -53,9 +53,8 @@ class Export{
                     echo '<th>Nilai MTK</th>';
                     echo '<th>Nilai EN</th>';
                     echo '<th>Nilai IPA</th>';
-                    echo '<th>Nilai Avg Raport</th>';
                     echo '<th>Nilai Avg UN</th>';
-                    echo '<th>Skor</th>';
+                    echo '<th>Nilai Avg Raport</th>';
                     echo '<th>Status</th>';
                     echo '<th>Alasan Diskualifikasi</th>';
                     

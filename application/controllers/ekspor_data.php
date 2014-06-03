@@ -36,7 +36,7 @@ class Ekspor_data extends CI_Controller
 
 			$this->load->library('export');
 			$this->load->model('m_calon');
-			$sql = $this->m_calon->get_all();
+			$sql = $this->m_calon->get_excel();
 			$sql=$sql->result_array();
 			$sql_revised=array();
 			$i=0;
