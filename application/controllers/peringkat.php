@@ -475,14 +475,14 @@ function daftardis()
             $config['wordwrap'] = TRUE; 
             $this->email->initialize($config);
 
-            $this->email->from('herpiko@gmail.com', 'PSB Online SMA Negeri 1 Dompu');
+            $this->email->from('ppdb@ppdb.sman1dompu.sch.id', 'PSB Online SMA Negeri 1 Dompu');
             $this->email->to($email); 
             $this->email->subject('Diskualifikasi');
             $this->email->message($pesan);  
 
             $this->email->send();
 
-            //echo $this->email->print_debugger();
+            // echo $this->email->print_debugger();
 
 
 

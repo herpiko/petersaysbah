@@ -8,7 +8,7 @@
 |--------------------------------------------------------------------------
 */
 $config['website_name'] = 'PSB Online SMA Negeri 1 Dompu';
-$config['webmaster_email'] = 'herpiko@gmail.com';
+$config['webmaster_email'] = 'ppdb@ppdb.sman1dompu.sch.id';
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ $config['phpass_hash_strength'] = 8;
 */
 $config['allow_registration'] = TRUE;
 $config['captcha_registration'] = FALSE;
-$config['email_activation'] = FALSE;
+$config['email_activation'] = TRUE;
 $config['email_activation_expire'] = 60*60*24*2;
 $config['email_account_details'] = TRUE;
 $config['use_username'] = FALSE;

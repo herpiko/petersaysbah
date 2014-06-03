@@ -315,19 +315,19 @@ function validateFileSize(component,maxSize,msg_id,msg)
 			</tr> -->
 			<tr>
 				<td>Nilai Bahasa Indonesia</td>
-				<td><input class="form-control" name="nilai_a" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
+				<td><input class="form-control" name="nilai_a" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Nilai Matematika</td>
-				<td><input class="form-control" name="nilai_b" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
+				<td><input class="form-control" name="nilai_b" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Nilai Bahasa Inggris</td>
-				<td><input class="form-control" name="nilai_c" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
+				<td><input class="form-control" name="nilai_c" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>	
 			</tr>
 			<tr>
 				<td>Nilai IPA</td>
-				<td><input class="form-control" name="nilai_d" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>	
+				<td><input class="form-control" name="nilai_d" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>	
 			</tr>
 			<tr>
 			<tr><td><br></td></tr>
@@ -348,6 +348,7 @@ function validateFileSize(component,maxSize,msg_id,msg)
 					<td>III</td>
 					<td>IV</td>
 					<td>V</td>
+					<td>VI</td>
 					
 				</strong>
 				</tr>
@@ -355,41 +356,56 @@ function validateFileSize(component,maxSize,msg_id,msg)
 				<tr>
 				<td>Bahasa Indonesia</td>
 				<td>&nbsp&nbsp&nbsp</td>
-				<td><input class="form-control input-small" name="nilai_bi_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_bi_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_bi_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_bi_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_bi_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				
+				<td><input class="form-control input-small" name="nilai_bi_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bi_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bi_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bi_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bi_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bi_6" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+
 				</tr>
 				<tr>
 				<td>Matematika</td>
 				<td>&nbsp&nbsp&nbsp</td>
-				<td><input class="form-control input-small" name="nilai_ma_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_ma_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_ma_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_ma_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_ma_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_ma_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_ma_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_ma_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_ma_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_ma_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_ma_6" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
 				
 				</tr>
 				<tr>
 				<td>Bahasa Inggris</td>
 				<td>&nbsp&nbsp&nbsp</td>
-				<td><input class="form-control input-small" name="nilai_en_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_en_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_en_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_en_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_en_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_en_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_en_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_en_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_en_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_en_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_en_6" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
 				
 				</tr>
 				<tr>
-				<td>IPA</td>
+				<td>Biologi</td>
 				<td>&nbsp&nbsp&nbsp</td>
-				<td><input class="form-control input-small" name="nilai_sc_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_sc_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_sc_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_sc_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
-				<td><input class="form-control input-small" name="nilai_sc_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[1;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bo_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bo_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bo_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bo_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bo_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_bo_6" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				
+				</tr>
+				<tr>
+				<td>Fisika</td>
+				<td>&nbsp&nbsp&nbsp</td>
+				<td><input class="form-control input-small" name="nilai_fi_1" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_fi_2" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_fi_3" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_fi_4" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_fi_5" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
+				<td><input class="form-control input-small" name="nilai_fi_6" data-validation="required number" data-validation-decimal-separator="." data-validation-allowing="float,range[0;10]" type="text"></td>
 				
 				</tr>
 				</table>

@@ -6,14 +6,16 @@ class M_calon extends CI_Model{
 	}
 
 
-	function submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_av,$nilai_sc_1,$nilai_sc_2,$nilai_sc_3,$nilai_sc_4,$nilai_sc_5,$nilai_sc_av){
+	function submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_6,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_6,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_6,$nilai_en_av,$nilai_bo_1,$nilai_bo_2,$nilai_bo_3,$nilai_bo_4,$nilai_bo_5,$nilai_bo_6,$nilai_bo_av,$nilai_fi_1,$nilai_fi_2,$nilai_fi_3,$nilai_fi_4,$nilai_fi_5,$nilai_fi_6,$nilai_fi_av){
 
 		$db=$this->load->database('default',TRUE);	
 		$query="INSERT INTO calon (calon_id,calon_email,calon_passwd,calon_selfie,calon_nama,calon_panggilan,calon_kelamin,calon_tempatlahir,calon_tanggallahir,calon_agama,calon_alamat,calon_asal,calon_nis,calon_nama_ayah,calon_nama_ibu,calon_pendidikan_ayah,calon_pendidikan_ibu,calon_pekerjaan_ayah,calon_pekerjaan_ibu,calon_alamat_ortu,calon_notelp,calon_nilai_a,calon_nilai_b,calon_nilai_c,calon_nilai_d,calon_nilai_e,calon_nilai_f,calon_nilai_g,
-			calon_nilai_bi_1,calon_nilai_bi_2,calon_nilai_bi_3,calon_nilai_bi_4,calon_nilai_bi_5,calon_nilai_bi_av,
-			calon_nilai_ma_1,calon_nilai_ma_2,calon_nilai_ma_3,calon_nilai_ma_4,calon_nilai_ma_5,calon_nilai_ma_av,
-			calon_nilai_en_1,calon_nilai_en_2,calon_nilai_en_3,calon_nilai_en_4,calon_nilai_en_5,calon_nilai_en_av,
-			calon_nilai_sc_1,calon_nilai_sc_2,calon_nilai_sc_3,calon_nilai_sc_4,calon_nilai_sc_5,calon_nilai_sc_av
+			calon_nilai_bi_1,calon_nilai_bi_2,calon_nilai_bi_3,calon_nilai_bi_4,calon_nilai_bi_5,calon_nilai_bi_6,calon_nilai_bi_av,
+			calon_nilai_ma_1,calon_nilai_ma_2,calon_nilai_ma_3,calon_nilai_ma_4,calon_nilai_ma_5,calon_nilai_ma_6,calon_nilai_ma_av,
+			calon_nilai_en_1,calon_nilai_en_2,calon_nilai_en_3,calon_nilai_en_4,calon_nilai_en_5,calon_nilai_en_6,calon_nilai_en_av,
+			calon_nilai_bo_1,calon_nilai_bo_2,calon_nilai_bo_3,calon_nilai_bo_4,calon_nilai_bo_5,calon_nilai_bo_6,calon_nilai_bo_av,
+			calon_nilai_fi_1,calon_nilai_fi_2,calon_nilai_fi_3,calon_nilai_fi_4,calon_nilai_fi_5,calon_nilai_fi_6,calon_nilai_fi_av
+			
 			) values (
 			'$id',
 			'$email',
@@ -48,25 +50,36 @@ class M_calon extends CI_Model{
 			'$nilai_bi_3',
 			'$nilai_bi_4',
 			'$nilai_bi_5',
+			'$nilai_bi_6',
 			'$nilai_bi_av',
 			'$nilai_ma_1',
 			'$nilai_ma_2',
 			'$nilai_ma_3',
 			'$nilai_ma_4',
 			'$nilai_ma_5',
+			'$nilai_ma_6',
 			'$nilai_ma_av',
 			'$nilai_en_1',
 			'$nilai_en_2',
 			'$nilai_en_3',
 			'$nilai_en_4',
 			'$nilai_en_5',
+			'$nilai_en_6',
 			'$nilai_en_av',
-			'$nilai_sc_1',
-			'$nilai_sc_2',
-			'$nilai_sc_3',
-			'$nilai_sc_4',
-			'$nilai_sc_5',
-			'$nilai_sc_av'
+			'$nilai_bo_1',
+			'$nilai_bo_2',
+			'$nilai_bo_3',
+			'$nilai_bo_4',
+			'$nilai_bo_5',
+			'$nilai_bo_6',
+			'$nilai_bo_av',
+			'$nilai_fi_1',
+			'$nilai_fi_2',
+			'$nilai_fi_3',
+			'$nilai_fi_4',
+			'$nilai_fi_5',
+			'$nilai_fi_6',
+			'$nilai_fi_av'
 			)";
 		$db->query($query);
 		

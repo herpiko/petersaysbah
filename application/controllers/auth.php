@@ -262,30 +262,44 @@ class Auth extends CI_Controller
 		$nilai_bi_3=$this->input->post('nilai_bi_3');
 		$nilai_bi_4=$this->input->post('nilai_bi_4');
 		$nilai_bi_5=$this->input->post('nilai_bi_5');
-		$nilai_bi_av=($nilai_bi_1+$nilai_bi_2+$nilai_bi_3+$nilai_bi_4+$nilai_bi_5)/5;
+		$nilai_bi_6=$this->input->post('nilai_bi_6');
+		$nilai_bi_av=($nilai_bi_1+$nilai_bi_2+$nilai_bi_3+$nilai_bi_4+$nilai_bi_5+$nilai_bi_6)/6;
 
 		$nilai_ma_1=$this->input->post('nilai_ma_1');
 		$nilai_ma_2=$this->input->post('nilai_ma_2');
 		$nilai_ma_3=$this->input->post('nilai_ma_3');
 		$nilai_ma_4=$this->input->post('nilai_ma_4');
 		$nilai_ma_5=$this->input->post('nilai_ma_5');
-		$nilai_ma_av=($nilai_ma_1+$nilai_ma_2+$nilai_ma_3+$nilai_ma_4+$nilai_ma_5)/5;
+		$nilai_ma_6=$this->input->post('nilai_ma_6');
+		$nilai_ma_av=($nilai_ma_1+$nilai_ma_2+$nilai_ma_3+$nilai_ma_4+$nilai_ma_5+$nilai_ma_6)/6;
 
 		$nilai_en_1=$this->input->post('nilai_en_1');
 		$nilai_en_2=$this->input->post('nilai_en_2');
 		$nilai_en_3=$this->input->post('nilai_en_3');
 		$nilai_en_4=$this->input->post('nilai_en_4');
 		$nilai_en_5=$this->input->post('nilai_en_5');
-		$nilai_en_av=($nilai_en_1+$nilai_en_2+$nilai_en_3+$nilai_en_4+$nilai_en_5)/5;
+		$nilai_en_6=$this->input->post('nilai_en_6');
+		$nilai_en_av=($nilai_en_1+$nilai_en_2+$nilai_en_3+$nilai_en_4+$nilai_en_5+$nilai_en_6)/6;
 
-		$nilai_sc_1=$this->input->post('nilai_sc_1');
-		$nilai_sc_2=$this->input->post('nilai_sc_2');
-		$nilai_sc_3=$this->input->post('nilai_sc_3');
-		$nilai_sc_4=$this->input->post('nilai_sc_4');
-		$nilai_sc_5=$this->input->post('nilai_sc_5');
-		$nilai_sc_av=($nilai_sc_1+$nilai_sc_2+$nilai_sc_3+$nilai_sc_4+$nilai_sc_5)/5;
+		$nilai_bo_1=$this->input->post('nilai_bo_1');
+		$nilai_bo_2=$this->input->post('nilai_bo_2');
+		$nilai_bo_3=$this->input->post('nilai_bo_3');
+		$nilai_bo_4=$this->input->post('nilai_bo_4');
+		$nilai_bo_5=$this->input->post('nilai_bo_5');
+		$nilai_bo_6=$this->input->post('nilai_bo_6');
+		$nilai_bo_av=($nilai_bo_1+$nilai_bo_2+$nilai_bo_3+$nilai_bo_4+$nilai_bo_5+$nilai_bo_6)/6;
+
+		$nilai_fi_1=$this->input->post('nilai_fi_1');
+		$nilai_fi_2=$this->input->post('nilai_fi_2');
+		$nilai_fi_3=$this->input->post('nilai_fi_3');
+		$nilai_fi_4=$this->input->post('nilai_fi_4');
+		$nilai_fi_5=$this->input->post('nilai_fi_5');
+		$nilai_fi_6=$this->input->post('nilai_fi_6');
+		$nilai_fi_av=($nilai_fi_1+$nilai_fi_2+$nilai_fi_3+$nilai_fi_4+$nilai_fi_5+$nilai_fi_6)/6;
+
 		
-		$nilai_e=($nilai_bi_av+$nilai_ma_av+$nilai_en_av+$nilai_sc_av)/4;
+		
+		$nilai_e=($nilai_bi_av+$nilai_ma_av+$nilai_en_av+$nilai_bo_av+$nilai_fi_av)/5;
 		
 		if ($asal==0) {
 			$asal=$sekolahlain;
@@ -334,7 +348,7 @@ class Auth extends CI_Controller
 		// }
 		// chmod('/uploads/selfie'.$config['file_name'], 0755);
 
-		$this->m_calon->submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_av,$nilai_sc_1,$nilai_sc_2,$nilai_sc_3,$nilai_sc_4,$nilai_sc_5,$nilai_sc_av);
+		$this->m_calon->submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_6,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_6,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_6,$nilai_en_av,$nilai_bo_1,$nilai_bo_2,$nilai_bo_3,$nilai_bo_4,$nilai_bo_5,$nilai_bo_6,$nilai_bo_av,$nilai_fi_1,$nilai_fi_2,$nilai_fi_3,$nilai_fi_4,$nilai_fi_5,$nilai_fi_6,$nilai_fi_av);
 
 
 		
@@ -861,7 +875,7 @@ class Auth extends CI_Controller
 		$this->email->message($this->load->view('email/'.$type.'-html', $data, TRUE));
 		$this->email->set_alt_message($this->load->view('email/'.$type.'-txt', $data, TRUE));
 		$this->email->send();
-		echo $this->email->print_debugger();
+		// echo $this->email->print_debugger();
 	}
 
 	/**

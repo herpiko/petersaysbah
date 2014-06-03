@@ -8,7 +8,7 @@ hubungi :
 <br>1234567890</h2>
 
 <br>
-[ ^ bagus kalo dibikin banner yah]
+[ ^ bagus kalo dibikin banner]
 
 </div>
 			</div>

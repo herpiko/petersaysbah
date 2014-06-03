@@ -288,7 +288,7 @@ Alasan diskualifikasi :
 <tr><td><br><strong>Nilai Sekolah</strong></td></tr>
 <tr>
 	<td>
-		Rata-rata Raport Semester I s/d V
+		Rata-rata Raport Semester I s/d VI
 	</td>
 	<td>
 		: &nbsp
