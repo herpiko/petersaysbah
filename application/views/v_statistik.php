@@ -3,7 +3,7 @@
 					
 		<h3><?php echo $title;?></h3>	
 
-<p>statistik</p>
+<p>tes...</p>
 
 
 </div>

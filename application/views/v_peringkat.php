@@ -13,6 +13,10 @@
 if ($is_logged_in) {
 echo "<h3>".$title."</h3>";
 if ($username=='admin') {
+
+if (isset($subtitle)) {
+	echo $subtitle;
+}
 echo "<form action=\"".$base_url."peringkat/bulkaction\" method=\"POST\">";
 
 echo "<div class=\"pull-left\" id=\"leftbutton\" style=\"display:none\"><input type=\"hidden\" name=\"current_url\" value=\"".current_url()."\">";
@@ -54,9 +58,27 @@ echo "&nbsp&nbsp&nbsp&nbsp<input class=\"btn btn-danger\" type=\"button\" id=\"m
 			</div></div>";
 
 
-echo "<a href=\"".$base_url."ekspor_data\" class=\"pull-right btn btn-default\">Eksport data ke berkas Excel</a><br><br>";
+echo "<div class=\"btn-group pull-right\">
+<button class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">
+Ekspor data
+</button>
+<ul class=\"dropdown-menu\">
+<li><a href=\"".$base_url."ekspor_data\">Keseluruhan</a></li>
+<li><a href=\"".$base_url."ekspor_data/lolos\">Lulus</a></li>
+<li><a href=\"".$base_url."ekspor_data/tidaklolos\">Tidak lulus</a></li>
+<li><a href=\"".$base_url."ekspor_data/diskualifikasi\">Diskualifikasi</a></li>
+</ul>
+&nbsp&nbsp&nbsp<a href=\"".$base_url."uploads/selfie/selfie.zip\" class=\"btn btn-default\">
+Unduh foto
+</a>
+</div>
+
+<br>
+<br>	";
+
 
 }
+
 
 echo $table;
 

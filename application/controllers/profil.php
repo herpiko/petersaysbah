@@ -14,6 +14,7 @@ class Profil extends CI_Controller
 	}
 
 	function index(){ 
+		
 
 		$data['title']="Profil";
 		$data['is_logged_in']=$this->tank_auth->is_logged_in();
@@ -30,6 +31,7 @@ class Profil extends CI_Controller
 		// } else {
 
 		$id=$data['user_id'];
+
 		$peringkat_status=$this->m_calon->peringkat_status($id);
 		if ($peringkat_status[1]<=$peringkat_status[0]) {
 			$data['calon_rank']=$peringkat_status[1];
@@ -70,14 +72,16 @@ class Profil extends CI_Controller
 		$data['calon_nilai_d']=$profil[0]['calon_nilai_d'];
 		$data['calon_nilai_e']=$profil[0]['calon_nilai_e'];
 		$data['calon_nilai_f']=$profil[0]['calon_nilai_f'];
-		$data['calon_nilai_g']=$profil[0]['calon_nilai_g'];
+		$data['calon_nilai_g']=$profil[0]['calon_aa_skor'];
 		$data['calon_status']=$profil[0]['calon_status'];
 		$data['calon_selfie']=$profil[0]['calon_selfie'];
+
 
 		$this->load->view('header', $data);
 		$this->load->view('v_profil', $data);
 		$this->load->view('sidebar');
 		$this->load->view('footer');
+
 
 
 		}
@@ -135,7 +139,7 @@ class Profil extends CI_Controller
 				$calon_nilai_d=$profil[0]['calon_nilai_d'];
 				$calon_nilai_e=$profil[0]['calon_nilai_e'];
 				$calon_nilai_f=$profil[0]['calon_nilai_f'];
-				$calon_nilai_g=$profil[0]['calon_nilai_g'];
+				$calon_nilai_g=$profil[0]['calon_aa_skor'];
 				$calon_status=$profil[0]['calon_status'];
 				$calon_selfie=$profil[0]['calon_selfie'];
 
@@ -381,8 +385,6 @@ $isi= "
 
 </table>
 ";
-
-
 $this->load->library('tcpdf/tcpdf');
 
 $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);

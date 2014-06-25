@@ -9,7 +9,7 @@
 					
 					</div>
 <hr><p class="text-center">
-© 2014 SMAN 1 Dompu. All Rights Reserved.
+© SMAN 1 Dompu 2014 | <i>Toho Pahu Tupa Ro Lata</i>
 </p>
 			</div>
 			</div>

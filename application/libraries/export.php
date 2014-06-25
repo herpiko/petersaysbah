@@ -57,6 +57,7 @@ class Export{
                     echo '<th>Nilai Avg Raport</th>';
                     echo '<th>Status</th>';
                     echo '<th>Alasan Diskualifikasi</th>';
+                    echo '<th>Skor</th>';
                     
                 echo '</tr>';
                 

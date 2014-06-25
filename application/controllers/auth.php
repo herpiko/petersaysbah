@@ -39,7 +39,20 @@ class Auth extends CI_Controller
 			$this->load->view('sidebar');
 			$this->load->view('footer');
 	}
-	function tutup() {
+	function pra() {
+			$this->load->model('m_calon');
+			$data['title']="Pendaftaran belum dibuka";
+			$data['is_logged_in']=$this->tank_auth->is_logged_in();
+			$data['user_id']	= $this->tank_auth->get_user_id();
+			$data['username']	= $this->tank_auth->get_username();
+			$data['base_url']=$this->config->base_url();
+			$this->load->view('header', $data);
+			$this->load->view('v_reg_pesan', $data);
+			$this->load->view('sidebar');
+			$this->load->view('footer');
+	}
+
+	function pasca() {
 			$this->load->model('m_calon');
 			$data['title']="Pendaftaran telah ditutup";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
@@ -51,6 +64,8 @@ class Auth extends CI_Controller
 			$this->load->view('sidebar');
 			$this->load->view('footer');
 	}
+
+
 	function login()
 	{
 		if ($this->tank_auth->is_logged_in()) {									// logged in
@@ -94,7 +109,7 @@ class Auth extends CI_Controller
 						$data['login_by_email'])) {	
 					$username	= $this->tank_auth->get_username();							// success
 					if ($username=="admin") {
-						redirect('/peringkat');
+						redirect('/peringkat/latest');
 					} else {
 						redirect('/profil');	
 					}
@@ -211,7 +226,8 @@ class Auth extends CI_Controller
 
 					//insert calon data
 		$this->load->model('m_calon');
-		$this->load->model('m_sch');
+
+
 		$email=$this->input->post('email');
 		$passwd="";
 		$nama=$this->input->post('nama');
@@ -289,17 +305,26 @@ class Auth extends CI_Controller
 		$nilai_bo_6=$this->input->post('nilai_bo_6');
 		$nilai_bo_av=($nilai_bo_1+$nilai_bo_2+$nilai_bo_3+$nilai_bo_4+$nilai_bo_5+$nilai_bo_6)/6;
 
-		$nilai_fi_1=$this->input->post('nilai_fi_1');
-		$nilai_fi_2=$this->input->post('nilai_fi_2');
-		$nilai_fi_3=$this->input->post('nilai_fi_3');
-		$nilai_fi_4=$this->input->post('nilai_fi_4');
-		$nilai_fi_5=$this->input->post('nilai_fi_5');
-		$nilai_fi_6=$this->input->post('nilai_fi_6');
-		$nilai_fi_av=($nilai_fi_1+$nilai_fi_2+$nilai_fi_3+$nilai_fi_4+$nilai_fi_5+$nilai_fi_6)/6;
+		$semester_1=$nilai_bi_1."-".$nilai_ma_1."-".$nilai_en_1."-".$nilai_bo_1;
+		$semester_2=$nilai_bi_2."-".$nilai_ma_2."-".$nilai_en_2."-".$nilai_bo_2;
+		$semester_3=$nilai_bi_3."-".$nilai_ma_3."-".$nilai_en_3."-".$nilai_bo_3;
+		$semester_4=$nilai_bi_4."-".$nilai_ma_4."-".$nilai_en_4."-".$nilai_bo_4;
+		$semester_5=$nilai_bi_5."-".$nilai_ma_5."-".$nilai_en_5."-".$nilai_bo_5;
+		$semester_6=$nilai_bi_6."-".$nilai_ma_6."-".$nilai_en_6."-".$nilai_bo_6;
+		$semester_all=$semester_1."_".$semester_2."_".$semester_3."_".$semester_4."_".$semester_5."_".$semester_6;
+		// $nilai_fi_1=$this->input->post('nilai_fi_1');
+		// $nilai_fi_2=$this->input->post('nilai_fi_2');
+		// $nilai_fi_3=$this->input->post('nilai_fi_3');
+		// $nilai_fi_4=$this->input->post('nilai_fi_4');
+		// $nilai_fi_5=$this->input->post('nilai_fi_5');
+		// $nilai_fi_6=$this->input->post('nilai_fi_6');
+		// $nilai_fi_av=($nilai_fi_1+$nilai_fi_2+$nilai_fi_3+$nilai_fi_4+$nilai_fi_5+$nilai_fi_6)/6;
 
+		$nilai_e=($nilai_bi_av+$nilai_ma_av+$nilai_en_av+$nilai_bo_av)/4;
+
+		$this->load->model('m_sch');
 		
 		
-		$nilai_e=($nilai_bi_av+$nilai_ma_av+$nilai_en_av+$nilai_bo_av+$nilai_fi_av)/5;
 		
 		if ($asal==0) {
 			$asal=$sekolahlain;
@@ -348,7 +373,7 @@ class Auth extends CI_Controller
 		// }
 		// chmod('/uploads/selfie'.$config['file_name'], 0755);
 
-		$this->m_calon->submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_6,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_6,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_6,$nilai_en_av,$nilai_bo_1,$nilai_bo_2,$nilai_bo_3,$nilai_bo_4,$nilai_bo_5,$nilai_bo_6,$nilai_bo_av,$nilai_fi_1,$nilai_fi_2,$nilai_fi_3,$nilai_fi_4,$nilai_fi_5,$nilai_fi_6,$nilai_fi_av);
+		$this->m_calon->submit($id,$email,$passwd,$selfie,$nama,$panggilan,$kelamin,$tempatlahir,$tanggallahir,$agama,$alamat,$asal,$nis,$nama_ayah,$nama_ibu,$pendidikan_ayah,$pendidikan_ibu,$pekerjaan_ayah,$pekerjaan_ibu,$alamat_ortu,$notelp,$nilai_a,$nilai_b,$nilai_c,$nilai_d,$nilai_e,$nilai_f,$nilai_g,$nilai_bi_1,$nilai_bi_2,$nilai_bi_3,$nilai_bi_4,$nilai_bi_5,$nilai_bi_6,$nilai_bi_av,$nilai_ma_1,$nilai_ma_2,$nilai_ma_3,$nilai_ma_4,$nilai_ma_5,$nilai_ma_6,$nilai_ma_av,$nilai_en_1,$nilai_en_2,$nilai_en_3,$nilai_en_4,$nilai_en_5,$nilai_en_6,$nilai_en_av,$nilai_bo_1,$nilai_bo_2,$nilai_bo_3,$nilai_bo_4,$nilai_bo_5,$nilai_bo_6,$nilai_bo_av,$semester_all);
 
 
 		
@@ -404,117 +429,31 @@ class Auth extends CI_Controller
 			$tglbuka=$tetapan[1]['nilai'];
 			$tgltutup=$tetapan[2]['nilai'];
 			$tglpengumuman=$tetapan[3]['nilai'];
-
-			$today = date('d-m-Y');
+			$tglbuka=substr($tglbuka,6,4).substr($tglbuka,3,2).substr($tglbuka,0,2)."070000";
+			$tgltutup=substr($tgltutup,6,4).substr($tgltutup,3,2).substr($tgltutup,0,2)."120000";
+			$tglpengumuman=substr($tglpengumuman,6,4).substr($tglpengumuman,3,2).substr($tglpengumuman,0,2)."070000";
+			$today = date('YmdHis');
 			
-			$tglbuka_d=substr($tglbuka, 0,2);
-			if (substr($tglbuka_d, 0,1)=="0") {
-				$tglbuka_d=substr($tglbuka_d, 1,1);
-			}
-			$tglbuka_m=substr($tglbuka, 3,2);
-			if (substr($tglbuka_m, 0,1)=="0") {
-				$tglbuka_m=substr($tglbuka_m, 1,1);
+			//$today = date('Ymd');
+			// echo $today;
+			// echo $tglbuka;
+
+			if ($tglbuka > $today) {
+			redirect('/auth/pra');
 			}
 
-			$tgltutup_d=substr($tgltutup, 0,2);
-			if (substr($tgltutup_d, 0,1)=="0") {
-				$tgltutup_d=substr($tgltutup_d, 1,1);
-			}
-			$tgltutup_m=substr($tgltutup, 3,2);
-			if (substr($tgltutup_m, 0,1)=="0") {
-				$tgltutup_m=substr($tgltutup_m, 1,1);
-			}
-
-			$tglpengumuman_d=substr($tglpengumuman, 0,2);
-			if (substr($tglpengumuman_d, 0,1)=="0") {
-				$tglpengumuman_d=substr($tglpengumuman_d, 1,1);
-			}
-			$tglpengumuman_m=substr($tglpengumuman, 3,2);
-			if (substr($tglpengumuman_m, 0,1)=="0") {
-				$tglpengumuman_m=substr($tglpengumuman_m, 1,1);
-			}
-
-			$today_d=substr($today, 0,2);
-			if (substr($today_d, 0,1)=="0") {
-				$today_d=substr($today_d, 1,1);
-			}
-			$today_m=substr($today, 3,2);
-			if (substr($today_m, 0,1)=="0") {
-				$today_m=substr($today_m, 1,1);
-			}
-
-			//string pesan
-			$akandibuka="Pendaftaran akan dibuka tanggal ".$tglbuka;
-			$telahdibuka="Pendaftaran telah dibuka dan akan ditutup tanggal ".$tgltutup;
-			$telahditutup="Pendaftaran telah ditutup. Pengumuman akan dirilis tanggal ".$tglpengumuman;
-			$pengumuman="Hasil pengumuman dapat dilihat <a href=\"\">di sini</a>";
-
-			$pesan="";
-			if ($today_m==$tglbuka_m) {
-				if ($tglbuka_m==$tgltutup_m) {
-					if ($today_d<$tglbuka_d) {
-						$pesan=$akandibuka;
-						} else {
-							if ($today_d<$tgltutup_d) {
-								$pesan=$telahdibuka;
-							} else {
-								if ($today_d<$tglpengumuman_d) {
-									redirect('/auth/tutup');
-									}	
-								if ($today_d>$tglpengumuman_d) {
-									$pesan=$pengumuman;
-									}
-						}
-					}
-				} else {
-					if ($tglbuka_m<$tgltutup_m) {
-						if ($today_m<$tgltutup_m) {
-							$pesan=$telahdibuka;
-						}
-						if ($today_m==$tgltutup_m) {
-							if ($today_d<$tgltutup_d) {
-								$pesan=$telahdibuka;
-							} else {
-								if ($today_d<$tglpengumuman_d) {
-									redirect('/auth/tutup');
-									}	
-								if ($today_d>$tglpengumuman_d) {
-									$pesan=$pengumuman;
-									}
-							}
-						}
-					}
-				}
-			}
-
-			if ($today_m<$tglbuka_m){
-				$pesan=$akandibuka;
-			}
-
-			if ($today_m>$tglbuka_m){
-				if ($tglbuka_m<$tgltutup_m) {
-						if ($today_m<$tgltutup_m) {
-							$pesan=$telahdibuka;
-						}
-						if ($today_m==$tgltutup_m) {
-							if ($today_d<$tgltutup_d) {
-								$pesan=$telahdibuka;
-							} else {
-								if ($today_d<$tglpengumuman_d) {
-									redirect('/auth/tutup');
-									}	
-								if ($today_d>$tglpengumuman_d) {
-									$pesan=$pengumuman;
-									}
-							}
-						}
-					}
+			if ($tgltutup < $today) {
+			redirect('/auth/pasca');
 			}
 
 
+			$this->load->model('m_sch');
+			$data['sch']=$this->m_sch->get_all();
+			// print_r($data['sch']);
 
 
 			$this->load->model('m_calon');
+			$this->m_calon->bersih_bersih();
 			
 			$data['use_username'] = $use_username;
 			$data['captcha_registration'] = $captcha_registration;

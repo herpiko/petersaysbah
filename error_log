@@ -1,0 +1,52 @@
+[03-Jun-2014 21:22:07 Asia/Makassar] PHP Fatal error:  Call to a member function initialize() on a non-object in /home/sma10031/public_html/ppdb/rc/application/controllers/tes.php on line 21
+[03-Jun-2014 21:22:48 Asia/Makassar] PHP Fatal error:  Call to a member function initialize() on a non-object in /home/sma10031/public_html/ppdb/rc/application/controllers/tes.php on line 21
+[03-Jun-2014 21:22:49 Asia/Makassar] PHP Fatal error:  Call to a member function initialize() on a non-object in /home/sma10031/public_html/ppdb/rc/application/controllers/tes.php on line 21
+[05-Jun-2014 17:23:31 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 17:23:41 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 17:23:46 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 17:25:48 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 17:26:47 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 18:58:57 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:06:15 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:06:53 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:07:53 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:26:05 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:27:26 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:27:33 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:42:41 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:46:29 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:46:32 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:47:25 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:48:05 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:48:07 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:48:09 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:50:46 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:50:48 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:53:28 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:53:30 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:53:49 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:55:34 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:57:21 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:57:35 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:58:26 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 19:58:29 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:04:16 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:06:21 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:06:33 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:06:35 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:06:40 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:09:36 Asia/Makassar] PHP Fatal error:  Class 'TCPDF' not found in /home/sma10031/public_html/ppdb/beta/application/controllers/profil.php on line 385
+[05-Jun-2014 20:10:31 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:10:32 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:11:17 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:11:20 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:12:55 Asia/Makassar] PHP Fatal error:  Class 'TCPDF' not found in /home/sma10031/public_html/ppdb/beta/application/controllers/profil.php on line 389
+[05-Jun-2014 20:13:36 Asia/Makassar] PHP Fatal error:  Class 'TCPDF' not found in /home/sma10031/public_html/ppdb/beta/application/controllers/profil.php on line 389
+[05-Jun-2014 20:17:01 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:17:04 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:17:15 Asia/Makassar] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/sma10031/public_html/ppdb/beta/application/controllers/profil.php on line 386
+[05-Jun-2014 20:17:28 Asia/Makassar] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/sma10031/public_html/ppdb/beta/application/controllers/profil.php on line 386
+[05-Jun-2014 20:17:50 Asia/Makassar] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/sma10031/public_html/ppdb/beta/application/controllers/profil.php on line 386
+[05-Jun-2014 20:17:54 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:20:03 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618
+[05-Jun-2014 20:26:16 Asia/Makassar] PHP Parse error:  syntax error, unexpected $end in /home/sma10031/public_html/ppdb/beta/application/libraries/tcpdf/tcpdf.php on line 18618

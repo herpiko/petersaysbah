@@ -21,7 +21,7 @@ class Peringkat extends CI_Controller
 
 		
 			
-			$data['title']="Peringkat";
+			$data['title']="Peringkat Lolos";
 			$data['is_logged_in']=$this->tank_auth->is_logged_in();
 			$data['user_id']	= $this->tank_auth->get_user_id();
 			$data['username']	= $this->tank_auth->get_username();
@@ -109,13 +109,15 @@ class Peringkat extends CI_Controller
 	// 		</div>";
 			$checkbox="<input type=\"checkbox\" name=\"bulkaction[]\" value=\"".$row['calon_id']."\" onclick=\"javacript:EnableDisableButton(this,value);\">";
 
+			// $nilai_g=((40/100)*($nilai_f*$multipler))+((60/100)*($nilai_e*$multipler));
+			
+
 			$this->table->add_row(
 			$checkbox,
-
 			$peringkat,
 			$row['calon_id'],
 			$row['calon_nama'],
-			$row['calon_nilai_g'],
+			$row['calon_aa_skor'],
 			$row['calon_asal'],
 			$v_email,
 			$v_nilai
@@ -126,17 +128,7 @@ class Peringkat extends CI_Controller
 		}
 		} else {
 		// bukan admin
-		$x=0;
-		foreach ($query as $row) {
-			$peringkat=$x+1;
-			
-			$this->table->add_row(
-			$peringkat,
-			$row['calon_nama'],
-			$row['calon_asal']			
-				);
-			$x=$x+1;
-		}	
+		redirect('/');	
 		}
 
 		//template buat taruh class bootstrap
@@ -160,19 +152,123 @@ class Peringkat extends CI_Controller
 
 		// }
 	}
+function latest()
+	{
+			
+		$data['title']="Keseluruhan Peserta Didik Baru";
+		$data['is_logged_in']=$this->tank_auth->is_logged_in();
+		$data['subtitle']="Minus diskualifikasi, diurutkan berdasarkan pendaftar terakhir.";
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$data['base_url']=$this->config->base_url();
+
+		//generate pagination 
+		$this->load->library('pagination');
+		$config['base_url']=$this->config->base_url().'peringkat/latest';
+		$config['per_page']=9000;
+		$config['total_rows']=$this->m_calon->get_total();
+		$this->pagination->initialize($config);
+		$data['pagination']=$this->pagination->create_links();
+
+		// //ambil query
+		$query=$this->m_calon->peringkat_by_waktu($config['per_page']);
+		
+		//cek apakah query kosong atau tidak, beri nilai ke $is_table_empty
+		if (empty($query)) {
+			$data['is_table_empty']=TRUE;
+		}
+		else {
+			$data['is_table_empty']=FALSE;
+		}
+		
+
+		//hitung jumlah sms
+		$limit=1;
+		$count=$this->m_calon->peringkat_out();
+		$count_lolos=$this->m_calon->peringkat();
+		$count_lolos=count($count_lolos);
+		$data['count']=count($count);
+
+
+		//parsing data ke tabel
+		if ($data['username']=="admin") {
+		// jika admin
+		$x=0;
+		foreach ($query as $row) {
+			// $checkbox="<input type=\"checkbox\" name=\"bulkaction\" value=\"".$row['calon_id']."\">";
+			$no=$x+1;
+			$hapus='';
+
+			$hapus=anchor('peringkat/delete/'.$row['calon_id'],'<img src="'.$this->config->base_url().'assets/img/rm.png" width="20px">',array('onclick'=>"return confirm('Anda yakin ingin mendiskualifikasi?')"));
+			$calon_nama=$row['calon_nama'];
+			$row['calon_nama']=anchor('peringkat/profil/'.$row['calon_id'],'<span class="icon-remove">'.$calon_nama.'</span>');
+			$calon_email=$row['calon_email'];
+			if ($this->m_calon->verifikasi_email($calon_email)=="1") {
+			$v_email="<img src=\"".$this->config->base_url()."assets/img/m1.png\" width=\"20px\">";	
+			} else {
+				$v_email="<img src=\"".$this->config->base_url()."assets/img/m0.png\" width=\"20px\">";
+			}
+			
+			if ($this->m_calon->verifikasi_nilai($row['calon_id'])=="1") {
+			$v_nilai="<img src=\"".$this->config->base_url()."assets/img/v1.png\" width=\"20px\">";	
+			} else {
+				$v_nilai="<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
+			}
+
+			$checkbox="<input type=\"checkbox\" name=\"bulkaction[]\" value=\"".$row['calon_id']."\" onclick=\"javacript:EnableDisableButton(this,value);\">";
+
+			$this->table->add_row(
+			$checkbox,
+
+			$no,
+			$row['calon_waktu'],
+			$row['calon_id'],
+			$row['calon_nama'],
+			$row['calon_aa_skor'],
+			$row['calon_asal'],
+			$v_email,
+			$v_nilai
+
+			
+				);
+			$x=$x+1;
+		}
+		} else {
+		// bukan admin
+		
+		redirect('/');	
+		}
+
+		//template buat taruh class bootstrap
+		$tmpl = array ( 'table_open'  => '<table class="table table-hover table-striped">','table_close'  => '</table>'  );
+		$this->table->set_template($tmpl); 
+		if ($data['username']=="admin") {
+			$this->table->set_heading('','No.','Waktu Pendaftaran','Nomor Registrasi','Nama','Skor nilai','Sekolah asal','Verifikasi email','Valid');
+		} 
+		$data['table']=$this->table->generate();
+		$this->load->model('m_calon');
+			if (!isset($no)) {
+				$no=0;
+			}
+			$data['subtitle']="Minus diskualifikasi, diurutkan berdasarkan pendaftar terakhir.<br>Total : ".$no." orang";
+
+			$this->load->view('header', $data);
+			$this->load->view('v_peringkat', $data);
+			if ($data['username']!="admin") {
+				$this->load->view('sidebar');
+			}
+			$this->load->view('footer');
+
+		// }
+	}
 function out()
 	{
-		// if (!$this->tank_auth->is_logged_in()) {
-		// 	redirect('/auth/login/');
-		// } else {
-
-		
 			
-			$data['title']="Peringkat tidak lolos";
-			$data['is_logged_in']=$this->tank_auth->is_logged_in();
-			$data['user_id']	= $this->tank_auth->get_user_id();
-			$data['username']	= $this->tank_auth->get_username();
-			$data['base_url']=$this->config->base_url();
+		$data['title']="Peringkat tidak lolos";
+		$data['is_logged_in']=$this->tank_auth->is_logged_in();
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
+		$data['base_url']=$this->config->base_url();
 
 		//generate pagination 
 		$this->load->library('pagination');
@@ -227,35 +323,6 @@ function out()
 				$v_nilai="<img src=\"".$this->config->base_url()."assets/img/v0.png\" width=\"20px\">";
 			}
 
-	// 		$diskualifikasi="
- // <a id=\"modal-".$row['calon_id']."\" href=\"#modal-container-".$row['calon_id']."\" data-toggle=\"modal\"><img src=\"".$this->config->base_url()."assets/img/rm.png\" width=\"20px\"></a>		
-	// 		<div class=\"modal fade\" id=\"modal-container-".$row['calon_id']."\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
-	// 			<div class=\"modal-dialog\">
-	// 				<div class=\"modal-content\">
-	// 					<div class=\"modal-header\">
-	// 						 <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">×</button>
-	// 						<h4 class=\"modal-title\" id=\"myModalLabel\">
-	// 							Diskualifikasi
-	// 						</h4>
-	// 					</div>
-	// 					<div class=\"modal-body\">
-	// 					No. Registrasi : ".$row['calon_id']."
-	// 					<br>Nama : ".$row['calon_nama']."
-	// 					<br>Email : ".$row['calon_email']."
-	// 					<br><hr>
-	// 					Mohon maaf, anda didiskualifikasi karena :
-	// 						<br><br><form method=\"POST\" name=\"form-".$row['calon_id']."\" action=\"".$this->config->base_url()."peringkat/delete/".$row['calon_id']."\" \">
-	// 							<textarea style=\"width:540px;height:150px\" name=\"pesan\" placeholder=\"Tuliskan alasan diskualifikasi\"></textarea>
-	// 					</div>
-	// 					<div class=\"modal-footer\">
-	// 						<input type=\"hidden\" name=\"email\" value=\"".$row['calon_email']."\">
-	// 						 <input type=\"button\" class=\"btn btn-default\" value=\"Batal\" data-dismiss=\"modal\">  <input class=\"btn btn-danger\" type=\"submit\" name=\"submit\" value=\"Diskualifikasi dan kirim email pemberitahuan\">
-	// 						</form>
-	// 					</div>
-	// 				</div>
-					
-	// 			</div>
-	// 		</div>";
 			$checkbox="<input type=\"checkbox\" name=\"bulkaction[]\" value=\"".$row['calon_id']."\" onclick=\"javacript:EnableDisableButton(this,value);\">";
 
 			$this->table->add_row(
@@ -264,7 +331,7 @@ function out()
 			$peringkat,
 			$row['calon_id'],
 			$row['calon_nama'],
-			$row['calon_nilai_g'],
+			$row['calon_aa_skor'],
 			$row['calon_asal'],
 			$v_email,
 			$v_nilai
@@ -367,7 +434,7 @@ function daftardis()
 			$this->table->add_row(
 			$row['calon_id'],
 			$row['calon_nama'],
-			$row['calon_nilai_g'],
+			$row['calon_aa_skor'],
 			$row['calon_asal'],
 			$row['calon_alasandis']
 			
@@ -583,6 +650,16 @@ function daftardis()
 		$this->load->model('m_calon');
 		$profil=$this->m_calon->profil($id);
 		
+		$peringkat_status=$this->m_calon->peringkat_status($id);
+		if ($peringkat_status[1]<=$peringkat_status[0]) {
+			$data['calon_rank']=$peringkat_status[1];
+			$data['calon_rank_status']="<span style=\"color:green\">Masuk daftar lulus sementara</span> sampai dengan ".date("d/m/y : H:i:s", time());
+		} else {
+			$data['calon_rank']=$peringkat_status[1];
+			$data['calon_rank_status']="<span style=\"color:red\">Tidak masuk daftar lulus sementara</span> sampai dengan ".date("d/m/y : H:i:s", time());
+		}
+
+
 		$data['calon_id']=$profil[0]['calon_id'];
 		$data['calon_email']=$profil[0]['calon_email'];
 		$data['calon_nama']=$profil[0]['calon_nama'];
@@ -610,9 +687,12 @@ function daftardis()
 		$data['calon_nilai_d']=$profil[0]['calon_nilai_d'];
 		$data['calon_nilai_e']=$profil[0]['calon_nilai_e'];
 		$data['calon_nilai_f']=$profil[0]['calon_nilai_f'];
-		$data['calon_nilai_g']=$profil[0]['calon_nilai_g'];
+		$data['calon_nilai_g']=$profil[0]['calon_aa_skor'];
 		$data['calon_status']=$profil[0]['calon_status'];
 		$data['calon_selfie']=$profil[0]['calon_selfie'];
+		$semester_all=explode("_", $profil[0]['semester_all']); 
+		$data['semester_all']=$semester_all;
+		// print_r($semester_all);
 
 
 		$this->load->view('header', $data);

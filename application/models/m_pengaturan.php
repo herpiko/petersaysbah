@@ -18,12 +18,18 @@ class M_pengaturan extends CI_Model{
 		$db->query($query4);
 	}
 
+	
 	function baca(){
 		$db=$this->load->database('default',TRUE);
 		$query="SELECT * FROM tetapan";
 		$result=$db->query($query);
 		$result=$result->result_array();
 		return $result;
+	}
+	function simpan_sekolahlain($sch_multipler){
+		$db=$this->load->database('default',TRUE);
+		$query="UPDATE tetapan SET nilai='$sch_multipler' WHERE tetapan='sekolahlain'";
+		$db->query($query);
 	}
 
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,11 +36,11 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<h3>Penerimaan Peserta Didik Baru - SMA Negeri 1 Dompu
+			<h3 style="color:#428BCA">PPDB Online - SMA Negeri 1 Dompu
 			</h3>
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">PPDB</a>
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><img src="http://ppdb.sman1dompu.sch.id/assets/img/logo.png" width="38px" style="margin-top:5px;margin-bottom:5px;margin-left:10px;margin-right:10px;">
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -93,15 +92,15 @@
 						</li>
 						
 						<?php 
-							if ($is_logged_in AND $username!="admin") {
-							echo "<li";
-							if ($title=="Peringkat") {
-							echo " class=\"active\"";
-							}
-							echo ">";
-									echo "<a href=\"".$base_url."peringkat\">Peringkat</a>";	
-							echo "</li>";
-							}
+							// if ($is_logged_in AND $username!="admin") {
+							// echo "<li";
+							// if ($title=="Peringkat") {
+							// echo " class=\"active\"";
+							// }
+							// echo ">";
+							// 		echo "<a href=\"".$base_url."peringkat\">Peringkat</a>";	
+							// echo "</li>";
+							// }
 							
 						?>
 						<?php 
@@ -119,13 +118,19 @@
 								echo "</a>
 									<ul class=\"dropdown-menu\">
 										<li>
-											<a href=\"".$base_url."peringkat\">Peringkat</a>
+											<a href=\"".$base_url."peringkat/latest\">Keseluruhan</a>
 										</li>
 										<li>
-											<a href=\"".$base_url."peringkat/out\">Tidak lolos</a>
+											<a href=\"".$base_url."peringkat\">Peringkat lolos</a>
+										</li>
+										<li>
+											<a href=\"".$base_url."peringkat/out\">Peringkat tidak lolos</a>
 										</li>
 										<li>
 											<a href=\"".$base_url."peringkat/daftardis\">Diskualifikasi</a>
+										</li>
+										<li>
+											<a href=\"".$base_url."result\">Pengumuman</a>
 										</li>
 									</ul>
 								</li>";
@@ -148,7 +153,41 @@
 						?>
 						
 						</li>
-					<!-- 	<li <?php if ($title=="Statistik") {
+					
+						<!-- <li <?php if ($title=="Pengaturan") {
+							echo "class=\"active\"";
+						} ?>>
+						<?php 
+							if ($username=="admin") {
+								echo "<a href=\"".$base_url."pengaturan\">Pengaturan</a>";
+							}
+						 ?>
+						</li> -->
+
+						
+						<?php 
+							if ($is_logged_in) {
+								if ($username=="admin") {
+
+						echo "<li class=\"dropdown\">";
+						
+						echo "<a data-toggle=\"dropdown\" class=\"dropdown-toggle\" href=\"#\">";
+									 echo "Pengaturan"; 
+								echo "</a>
+									<ul class=\"dropdown-menu\">
+										<li>
+											<a href=\"".$base_url."pengaturan\">Kuota & Jadwal</a>
+										</li>
+										<li>
+											<a href=\"".$base_url."pengaturan/prioritas_sekolah\">Prioritas Sekolah</a>
+										</li>
+									</ul>
+								</li>";
+							}
+						}
+						?>
+					
+					<!-- <li <?php if ($title=="Statistik") {
 							echo "class=\"active\"";
 						} ?>>
 						<?php 
@@ -157,16 +196,6 @@
 							}
 						 ?>
 						</li> -->
-						<li <?php if ($title=="Pengaturan") {
-							echo "class=\"active\"";
-						} ?>>
-						<?php 
-							if ($username=="admin") {
-								echo "<a href=\"".$base_url."pengaturan\">Pengaturan</a>";
-							}
-						 ?>
-						</li>
-						
 						<!-- <li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">

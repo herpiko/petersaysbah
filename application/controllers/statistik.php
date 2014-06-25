@@ -30,7 +30,7 @@ class Statistik extends CI_Controller
 			$this->load->view('footer');
 
 			$x=$this->m_calon->get_all();
-			print_r($x);
+			// print_r($x);
 
 
 		// }

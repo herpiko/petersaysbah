@@ -19,18 +19,19 @@
 	    </script>
 
 
+
 <div class="row clearfix">
 				<div class="col-md-8 column">
  	
 		<h3>Pengaturan</h3>	
 		<?php
-		if ($notif=="Setelan baru telah disimpan") {
-		echo "<div class=\"alert alert-warning\" style=\"font-size:14px;\">
-		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>".$notif."
-</div>";
-		}
+// 		if ($notif=="Setelan baru telah disimpan") {
+// 		echo "<div class=\"alert alert-warning\" style=\"font-size:14px;\">
+// 		<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>".$notif."
+// </div>";
+// 		}
 		 ?>
-<form name="submit" role="form" method="POST" action="pengaturan/simpan" class="well">
+<form name="submit" role="form" method="POST" action="pengaturan/simpan">
 		<table>
 			<tr>
 				<td width="200">Daya tampung siswa</td>
@@ -42,7 +43,8 @@
 			</tr> -->
 			<tr>
 				<td>Pendaftaran dibuka</td>
-				<td><input id="tanggal" class="form-control" name="tglbuka" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text>
+				<td><input id="tanggal" class="form-control" name="tglbuka" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text">				
+				
 			            <!--javascript for datepicker-->
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
@@ -51,11 +53,16 @@
 				var elem = document.getElementById("tanggal");
 				elem.value = "<?php echo $tglbuka; ?>";
 				</script>
+				<!-- </td><td>
+				<input style="text-align:center" id="jam" class="form-control" name="jambuka" data-validation="required number" placeholder="00" type="text">
+				</td><td>:</td>
+				<td>
+				<input style="text-align:center" id="menit" class="form-control" name="menitbuka" data-validation="required number" placeholder="00" type="text"> -->
 				</td>
 			</tr>
 			<tr>
-				<td>Pendaftaran ditutup</td>
-				<td><input id="tanggal2" class="form-control" name="tgltutup" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text value="<?php echo $tgltutup; ?>">
+				<td>Pendaftaran ditutup <br>(hari terakhir)</td>
+				<td><input id="tanggal2" class="form-control" name="tgltutup" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text" value="<?php echo $tgltutup; ?>">
 			            <!--javascript for datepicker-->
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
@@ -65,12 +72,17 @@
 				elem.value = "<?php echo $tgltutup; ?>";
 				</script>
 
+				<!-- </td><td>
+				<input style="text-align:center" id="jam2" class="form-control" name="jamtutup" data-validation="required number" placeholder="00" type="text">
+				</td><td>:</td>
+				<td>
+				<input style="text-align:center" id="menit2" class="form-control" name="menittutup" data-validation="required number" placeholder="00" type="text"> -->
 				</td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>Pengumuman</td>
 				<td><input id="tanggal3" class="form-control" name="tglpengumuman" data-validation="birthdate" data-validation-format="dd-mm-yyyy" type="text">
-			            <!--javascript for datepicker-->
+			            
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-modal.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-transition.js"></script>
 			            <script src="<?php echo $base_url;?>assets/datepicker/js/bootstrap-datepicker.js"></script>
@@ -80,7 +92,7 @@
 				</script>
 
 				</td>
-			</tr>
+			</tr> -->
 		
 			<tr>
 				<td>
@@ -117,8 +129,9 @@
 });
  </script>
 					
-						
-				
-		
-	
+
+
+
+
 </div>
+
